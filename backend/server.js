@@ -6,9 +6,17 @@ require('dotenv').config()
 
 //require the express package
 const express = require('express')
+//require the mongoose package
+const mongoose = require('mongoose')
+
+
 
 //product routes in routes/products.js
 const productRoutes = require('./routes/products')
+
+
+
+
 
 //start express app
 const app = express()
@@ -29,10 +37,21 @@ app.use((req, res, next) => {
 //ROUTING: grabs all routes configured in routes/products.js
 app.use('/api/products', productRoutes)
 
+//connect to DB
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
+
+    //listen for requests using dotenv PORT
+    app.listen(process.env.PORT, () => {
+        console.log('listening on port 4000 with nodemon dev script and MONGO DB CONNECTED')
+    })
+
+  })
+  .catch((error) => {
+    console.log(error)
+  })    
 
 
-//listen for requests using dotenv PORT
-app.listen(process.env.PORT, () => {
-    console.log('listening on port 4000 with nodemon')
-})
+
+
 
