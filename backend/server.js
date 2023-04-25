@@ -7,13 +7,29 @@ require('dotenv').config()
 //require the express package
 const express = require('express')
 
+//product routes in routes/products.js
+const productRoutes = require('./routes/products')
+
 //start express app
 const app = express()
 
-//ROUTING
-app.get('/', (req, res) => {
-    res.json({msg:"Welcome"})
+
+
+//middleware
+app.use(express.json()) //to read json
+
+app.use((req, res, next) => {
+    //logs path of requests in console
+    console.log(req.path, req.method)
+    next()
 })
+
+
+
+//ROUTING: grabs all routes configured in routes/products.js
+app.use('/api/products', productRoutes)
+
+
 
 //listen for requests using dotenv PORT
 app.listen(process.env.PORT, () => {
