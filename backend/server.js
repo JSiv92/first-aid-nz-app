@@ -11,7 +11,7 @@ const mongoose = require('mongoose')
 
 
 
-//product routes in routes/products.js
+//product routes in routes directory: routes/products.js
 const productRoutes = require('./routes/products')
 
 

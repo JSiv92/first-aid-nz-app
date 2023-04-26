@@ -6,8 +6,12 @@
 // DELETE /products/:id --> delete single product by id 
 // PATCH /products/:id --> update single product by id
 
-//express router is needed 
+
 const express = require('express')
+//import Product model
+const Product = require('../models/ProductModel.js')
+
+//express router
 const router = express.Router()
 
 
@@ -28,9 +32,19 @@ router.get('/:id', (req, res) => {
 })
 
 //post a new product
-router.post('/', (req, res) => {
-    res.json({msg:'POST NEW PRODUCT'})
+router.post('/', async (req, res) => {
+    const {name, price, imageUrl, description} = req.body
+
+    try {
+        const product = await Product.create({name, price, imageUrl, description})
+        res.status(200).json(product)
+    }
+    catch (error) {
+        res.status(400).json({error: error.message})
+
+    }
 })
+
 
 //delete a product by id
 router.delete('/:id', (req, res) => {
