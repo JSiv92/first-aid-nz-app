@@ -13,13 +13,14 @@ const getProducts = async (req, res) => {
 const getProduct = async (req, res) => {
   const { id } = req.params;
 
-  //check id is valid
+  //check id is valid:
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ error: "Not a valid ID" });
   }
 
   const product = await Product.findById(id);
 
+  //if no matching product:
   if (!product) {
     return res.status(404).json({ error: "No product exists" });
   }
@@ -29,10 +30,10 @@ const getProduct = async (req, res) => {
 
 //CREATE new product
 const createProduct = async (req, res) => {
-  //get attributes from request body
+  //get attributes from request body:
   const { name, price, imageUrl, description } = req.body;
 
-  //add doc to db
+  //add doc to db:
   try {
     const product = await Product.create({
       name,
@@ -47,12 +48,59 @@ const createProduct = async (req, res) => {
 };
 
 //UPDATE product
+const updateProduct = async (req, res) => {
+  //get id of product to update
+  const { id } = req.params;
 
-//DELETE product
+  //check id is valid:
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "Not a valid ID" });
+  }
+
+  const product = await Product.findOneAndUpdate(
+    { _id: id },
+    {
+      //get all properties to update from body with '...':
+      ...req.body,
+    },
+    { new: true } //respond with updated doc
+  );
+
+  //if id didnt match anything in db
+  if (!product) {
+    return res.status(404).json({ error: "Product to update is not found" });
+  }
+
+  res.status(200).json(product);
+};
+
+//DELETE product by id
+const deleteProduct = async (req, res) => {
+  //get id from body:
+  const { id } = req.params;
+
+  //check id is valid:
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "Not a valid ID" });
+  }
+
+  //delete object (note id is called '_id' in mongodb)
+  const product = await Product.findOneAndDelete({ _id: id });
+
+  //if id didnt match anything in db
+  if (!product) {
+    return res.status(404).json({ error: "Product to delete is not found" });
+  }
+
+  //if successfully deleted:
+  res.status(200).json(product);
+};
 
 //export modules to use in routing
 module.exports = {
   createProduct,
   getProduct,
   getProducts,
+  deleteProduct,
+  updateProduct,
 };

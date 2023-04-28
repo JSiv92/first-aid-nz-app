@@ -13,6 +13,8 @@ const {
   createProduct,
   getProduct,
   getProducts,
+  deleteProduct,
+  updateProduct,
 } = require("../controllers/productController");
 
 //express router
@@ -32,13 +34,9 @@ router.get("/:id", getProduct);
 router.post("/", createProduct);
 
 //delete a product by id
-router.delete("/:id", (req, res) => {
-  res.json({ msg: "DELETE PRODUCT BY ID" });
-});
+router.delete("/:id", deleteProduct);
 
 //update a product
-router.patch("/:id", (req, res) => {
-  res.json({ msg: "UPDATE PRODUCT BY ID" });
-});
+router.patch("/:id", updateProduct);
 
 module.exports = router;
