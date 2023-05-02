@@ -23,8 +23,8 @@ app.use((req, res, next) => {
   next();
 });
 
-//ROUTING: grabs all routes configured in routes/products.js
-app.use("/api/products", productRoutes);
+//ROUTING: grabs all routes configured in routes/products.js from productRoutes variable
+app.use("/api/", productRoutes);
 
 //connect to DB
 mongoose
