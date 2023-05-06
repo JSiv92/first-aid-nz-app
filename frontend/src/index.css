@@ -13,35 +13,15 @@ body {
   font-family: "Poppins";
 }
 
-/*container that holds img logo and text logo*/
-.brandContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-
-/*text site title*/
-.site-title {
-  font-family: inherit;
-  color: #295c33;
-}
-
-.logo {
-  height: 50px;
-  width: 50px;
-  object-fit: contain;
-}
-
 * {
   box-sizing: border-box;
 }
-
+/*
 nav {
   background: #ffffff;
   align-items: stretch;
 }
-/*navbar container*/
+/*navbar container
 nav .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -53,7 +33,7 @@ nav .container {
   padding: 0 1rem;
 }
 
-/*NavLinks*/
+/*NavLinks
 nav a {
   color: #333;
   text-decoration: none;
@@ -73,14 +53,14 @@ nav a.active:hover {
   text-decoration: none;
 }
 
-/*nav list*/
+/*nav list*
 nav ul {
   padding: 0;
   margin: 0;
   list-style: none;
   display: flex;
   gap: 1rem;
-}
+}*/
 
 .pages {
   max-width: 1400px;

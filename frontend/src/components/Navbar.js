@@ -1,47 +1,87 @@
-import { NavLink } from "react-router-dom";
-import React from "react";
 import logo from "../fanzLogo.png";
 
-const Navbar = () => {
+import React, { useState } from "react";
+import { Button } from "./Button";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
+import Dropdown from "./Dropdown";
+
+function Navbar() {
+  const [click, setClick] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
+  const onMouseEnter = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(true);
+    }
+  };
+
+  const onMouseLeave = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(false);
+    }
+  };
+
   return (
-    <nav>
-      <div className="container">
-        <div className="brandContainer">
-          <img src={logo} className="logo" alt="logo" />
-          <NavLink to="/" className="site-title">
-            <h1>First Aid NZ</h1>
-          </NavLink>
+    <>
+      <nav className="navbar">
+        <img src={logo} className="logo" alt="logo" />
+        <Link to="/" className="site-title">
+          <h1>First&nbsp;Aid&nbsp;NZ</h1>
+        </Link>
+        <div className="menu-icon" onClick={handleClick}>
+          <i className={click ? "fas fa-times" : "fas fa-bars"} />
         </div>
-        <ul>
-          <li>
-            <NavLink to="/products" className="navlink">
-              Shop
-            </NavLink>
+        <ul className={click ? "nav-menu active" : "nav-menu"}>
+          <li
+            className="nav-item"
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+          >
+            <Link
+              to="/services"
+              className="nav-links"
+              onClick={closeMobileMenu}
+            >
+              Services <i className="fas fa-caret-down" />
+            </Link>
+            {dropdown && <Dropdown />}
           </li>
-          <li>
-            <NavLink to="/about" className="navlink">
-              About Us
-            </NavLink>
+          <li className="nav-item">
+            <Link
+              to="/products"
+              className="nav-links"
+              onClick={closeMobileMenu}
+            >
+              Products
+            </Link>
           </li>
-          <li>
-            <NavLink to="/learn" className="navlink">
-              Learn
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/services" className="navlink">
-              Our Services
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact" className="navlink">
+          <li className="nav-item">
+            <Link to="/contact" className="nav-links" onClick={closeMobileMenu}>
               Contact Us
-            </NavLink>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/sign-up"
+              className="nav-links-mobile"
+              onClick={closeMobileMenu}
+            >
+              Sign Up
+            </Link>
           </li>
         </ul>
-      </div>
-    </nav>
+        <Button />
+      </nav>
+    </>
   );
-};
+}
 
 export default Navbar;
