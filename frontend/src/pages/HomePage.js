@@ -5,8 +5,8 @@ import React from "react";
 
 const Home = () => {
   return (
-    <div className="Home">
-      <h2>Home Page</h2>
+    <div className="page">
+      <h2 style={{ color: "white" }}>Home Page</h2>
     </div>
   );
 };

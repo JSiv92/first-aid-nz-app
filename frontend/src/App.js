@@ -1,9 +1,16 @@
+/*
+->App.js serves as the entry point for the app
+->High level layouts and page routing are defined here
+*/
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
-//pages and components
-import Home from "./pages/Home.js";
-import Navbar from "./components/Navbar";
-import Shop from "./components/Shop.js";
+
+//pages
+import HomePage from "./pages/HomePage.js";
+import ShopPage from "./pages/ShopPage.js";
+//components
+import Navbar from "./components/Navbar.js";
 
 function App() {
   return (
@@ -12,8 +19,8 @@ function App() {
         <Navbar />
         <div className="pages">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Shop />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/products" element={<ShopPage />} />
           </Routes>
         </div>
       </BrowserRouter>

@@ -21,8 +21,10 @@ body {
   gap: 1rem;
 }
 
+/*text site title*/
 .site-title {
   font-family: inherit;
+  color: #295c33;
 }
 
 .logo {
@@ -59,16 +61,16 @@ nav a {
 
 nav a:hover {
   border: 1px;
-  color: red;
+  color: #ff4d3c;
 }
 
 nav a.active {
-  color: #295c33;
+  color: #6baf54;
 }
 
 nav a.active:hover {
-  color: red;
-  text-decoration: underline;
+  color: #ff4d3c;
+  text-decoration: none;
 }
 
 /*nav list*/
@@ -86,11 +88,10 @@ nav ul {
   margin: 0 auto;
 }
 
-/*homepage - all products*/
-.home {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 100px;
+/*div for -Page files*/
+.page {
+  background-color: red;
+  text-align: center;
 }
 
 .product-details {

@@ -25,7 +25,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink to="/learn" className="navlink">
-              Learn
+              Learn<i class="fa fa-caret-down"></i>
             </NavLink>
           </li>
           <li>

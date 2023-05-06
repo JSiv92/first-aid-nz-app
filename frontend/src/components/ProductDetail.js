@@ -1,3 +1,7 @@
+/*
+-> Individual Product Card
+*/
+
 import React from "react";
 
 const ProductDetails = ({ product }) => {
