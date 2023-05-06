@@ -3,12 +3,12 @@ import React from "react";
 
 //components
 
-const AboutPage = () => {
+const CoursesPage = () => {
   return (
     <div className="page">
-      <h2 style={{ color: "white" }}>About Us</h2>
+      <h2 style={{ color: "white" }}>First Aid Courses</h2>
     </div>
   );
 };
 
-export default AboutPage;
+export default CoursesPage;

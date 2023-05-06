@@ -3,12 +3,12 @@ import React from "react";
 
 //components
 
-const AboutPage = () => {
+const QuizPage = () => {
   return (
     <div className="page">
-      <h2 style={{ color: "white" }}>About Us</h2>
+      <h2 style={{ color: "white" }}>Test Your Knowledge</h2>
     </div>
   );
 };
 
-export default AboutPage;
+export default QuizPage;
