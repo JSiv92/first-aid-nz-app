@@ -1,3 +1,10 @@
+/*
+->This code exports several modules to use in routing to handle 
+  HTTP requests and CRUD operations for shop products. 
+
+JS 06/may/2023
+*/
+
 const mongoose = require("mongoose");
 const Product = require("../models/ProductModel");
 
@@ -33,7 +40,7 @@ const createProduct = async (req, res) => {
   //get attributes from request body:
   const { name, price, imageUrl, description } = req.body;
 
-  //add doc to db:
+  //add 'doc' to db:
   try {
     const product = await Product.create({
       name,

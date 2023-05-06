@@ -1,10 +1,10 @@
 //routes for Products
 
-// GET /products --> get all products
-// POST /products --> add a product
-// GET /products/:id --> get single product by id
-// DELETE /products/:id --> delete single product by id
-// PATCH /products/:id --> update single product by id
+// GET /products -> get all products
+// POST /products -> add a product
+// GET /products/:id -> get single product by id
+// DELETE /products/:id -> delete single product by id
+// PATCH /products/:id -> update single product by id
 
 const express = require("express");
 

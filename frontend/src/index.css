@@ -22,6 +22,7 @@ body {
 }
 
 .site-title {
+  font-family: inherit;
 }
 
 .logo {
@@ -63,7 +64,6 @@ nav a:hover {
 
 nav a.active {
   color: #295c33;
-  text-decoration: underline;
 }
 
 nav a.active:hover {

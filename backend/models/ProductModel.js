@@ -1,4 +1,9 @@
-//Create Product schema for database
+/*
+->This file defines a product schema using the Mongoose library for MongoDB
+->The schema defines the structure of the data that will be stored in the database for a product
+
+JS 06/may/2023
+*/
 
 const mongoose = require("mongoose");
 
