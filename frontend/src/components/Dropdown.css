@@ -1,19 +1,25 @@
 .dropdown-menu {
-  background: red;
+  background: #242222;
   width: 200px;
   position: absolute;
   top: 80px;
   list-style: none;
   text-align: start;
+  z-index: 1;
+}
+
+ul {
+  padding: 0;
 }
 
 .dropdown-menu li {
-  background: #1888ff;
+  background: #242222;
   cursor: pointer;
 }
 
 .dropdown-menu li:hover {
-  background: #5cabff;
+  background: #295c33;
+  font-style: italic;
 }
 
 .dropdown-menu.clicked {

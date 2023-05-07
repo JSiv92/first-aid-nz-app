@@ -2,7 +2,7 @@ import logo from "../fanzLogo.png";
 
 import React, { useState } from "react";
 import { Button } from "./Button";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import Dropdown from "./Dropdown";
 
@@ -33,9 +33,9 @@ function Navbar() {
     <>
       <nav className="navbar">
         <img src={logo} className="logo" alt="logo" />
-        <Link to="/" className="site-title">
+        <NavLink to="/" className="site-title">
           <h1>First&nbsp;Aid&nbsp;NZ</h1>
-        </Link>
+        </NavLink>
         <div className="menu-icon" onClick={handleClick}>
           <i className={click ? "fas fa-times" : "fas fa-bars"} />
         </div>
@@ -45,37 +45,42 @@ function Navbar() {
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
           >
-            <Link
+            <NavLink
               to="/services"
               className="nav-links"
               onClick={closeMobileMenu}
             >
               Services <i className="fas fa-caret-down" />
-            </Link>
+            </NavLink>
             {dropdown && <Dropdown />}
           </li>
+
           <li className="nav-item">
-            <Link
+            <NavLink
               to="/products"
               className="nav-links"
               onClick={closeMobileMenu}
             >
-              Products
-            </Link>
+              Shop
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link to="/contact" className="nav-links" onClick={closeMobileMenu}>
-              Contact Us
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/sign-up"
-              className="nav-links-mobile"
+            <NavLink
+              to="/learn"
+              className="nav-links"
               onClick={closeMobileMenu}
             >
-              Sign Up
-            </Link>
+              Learn
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              to="/contact"
+              className="nav-links"
+              onClick={closeMobileMenu}
+            >
+              Contact Us
+            </NavLink>
           </li>
         </ul>
         <Button />

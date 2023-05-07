@@ -15,6 +15,8 @@ import CoursesPage from "./pages/CoursesPage.js";
 import MedicPage from "./pages/MedicPage.js";
 import QuizPage from "./pages/QuizPage.js";
 import ScreeningPage from "./pages/ScreeningPage.js";
+import LearnPage from "./pages/LearnPage.js";
+import ServicesPage from "./pages/ServicesPage.js";
 //components
 import Navbar from "./components/Navbar.js";
 
@@ -33,6 +35,8 @@ function App() {
             <Route path="/medics" element={<MedicPage />} />
             <Route path="/quiz" element={<QuizPage />} />
             <Route path="/screening" element={<ScreeningPage />} />
+            <Route path="/learn" element={<LearnPage />} />
+            <Route path="/services" element={<ServicesPage />} />
           </Routes>
         </div>
       </BrowserRouter>

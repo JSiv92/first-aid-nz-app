@@ -1,22 +1,17 @@
 export const MenuItem = [
   {
-    title: "Marketing",
-    path: "/marketing",
+    title: "First Aid Training",
+    path: "/courses",
     cName: "dropdown-link",
   },
   {
-    title: "Consulting",
-    path: "/consulting",
+    title: "Event Medics",
+    path: "/medics",
     cName: "dropdown-link",
   },
   {
-    title: "Design",
-    path: "/design",
-    cName: "dropdown-link",
-  },
-  {
-    title: "Development",
-    path: "/development",
+    title: "Drug & Health Screening",
+    path: "/screening",
     cName: "dropdown-link",
   },
 ];
