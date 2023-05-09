@@ -18,7 +18,7 @@ import ScreeningPage from "./pages/ScreeningPage.js";
 import LearnPage from "./pages/LearnPage.js";
 import ServicesPage from "./pages/ServicesPage.js";
 //components
-import Navbar from "./components/Navbar.js";
+import Navbar from "./components/Nav/Navbar.js";
 
 function App() {
   return (

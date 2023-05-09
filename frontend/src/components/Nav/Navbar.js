@@ -1,4 +1,4 @@
-import logo from "../fanzLogo.png";
+import logo from "../../assets/fanzLogo.png";
 
 import React, { useState } from "react";
 import { Button } from "./Button";
@@ -80,6 +80,15 @@ function Navbar() {
               onClick={closeMobileMenu}
             >
               Contact Us
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/login"
+              className="nav-links-mobile"
+              onClick={closeMobileMenu}
+            >
+              Login
             </NavLink>
           </li>
         </ul>
