@@ -19,27 +19,31 @@ import LearnPage from "./pages/LearnPage.js";
 import ServicesPage from "./pages/ServicesPage.js";
 //components
 import Navbar from "./components/Nav/Navbar.js";
+import Footer from "./components/Footer/Footer.js";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Navbar />
-        <div className="pages">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/products" element={<ShopPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/courses" element={<CoursesPage />} />
-            <Route path="/medics" element={<MedicPage />} />
-            <Route path="/quiz" element={<QuizPage />} />
-            <Route path="/screening" element={<ScreeningPage />} />
-            <Route path="/learn" element={<LearnPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
+      <div className="pageWrapper">
+        <BrowserRouter>
+          <Navbar />
+          <div className="pages">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/products" element={<ShopPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/courses" element={<CoursesPage />} />
+              <Route path="/medics" element={<MedicPage />} />
+              <Route path="/quiz" element={<QuizPage />} />
+              <Route path="/screening" element={<ScreeningPage />} />
+              <Route path="/learn" element={<LearnPage />} />
+              <Route path="/services" element={<ServicesPage />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </div>
+      <Footer />
     </div>
   );
 }

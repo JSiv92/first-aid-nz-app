@@ -9,8 +9,8 @@ const ShopPage = () => {
     <>
       <div className="page">
         <h2 style={{ color: "white" }}>Shop</h2>
+        <Shop />
       </div>
-      <Shop />
     </>
   );
 };
