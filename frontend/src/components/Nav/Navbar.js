@@ -1,101 +1,54 @@
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import React from "react";
 import logo from "../../assets/fanzLogo.png";
 
-import React, { useState } from "react";
-import { Button } from "./Button";
-import { NavLink } from "react-router-dom";
-import "./Navbar.css";
-import Dropdown from "./Dropdown";
-
-function Navbar() {
-  const [click, setClick] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
-
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
-
-  const onMouseEnter = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(true);
-    }
-  };
-
-  const onMouseLeave = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(false);
-    }
-  };
-
+function NavbarComponent() {
   return (
     <>
-      <nav className="navbar">
-        <img src={logo} className="logo" alt="logo" />
-        <NavLink to="/" className="site-title">
-          <h1>First&nbsp;Aid&nbsp;NZ</h1>
-        </NavLink>
-        <div className="menu-icon" onClick={handleClick}>
-          <i className={click ? "fas fa-times" : "fas fa-bars"} />
-        </div>
-        <ul className={click ? "nav-menu active" : "nav-menu"}>
-          <li
-            className="nav-item"
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-          >
-            <NavLink
-              to="/services"
-              className="nav-links"
-              onClick={closeMobileMenu}
-            >
-              Services <i className="fas fa-caret-down" />
-            </NavLink>
-            {dropdown && <Dropdown />}
-          </li>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="/">
+            <img
+              src={logo}
+              alt="logo"
+              height="50px"
+              width="50px"
+              className="d-inline-block align-top"
+            />
+          </Navbar.Brand>
 
-          <li className="nav-item">
-            <NavLink
-              to="/products"
-              className="nav-links"
-              onClick={closeMobileMenu}
-            >
-              Shop
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink
-              to="/learn"
-              className="nav-links"
-              onClick={closeMobileMenu}
-            >
-              Learn
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink
-              to="/contact"
-              className="nav-links"
-              onClick={closeMobileMenu}
-            >
-              Contact Us
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/login"
-              className="nav-links-mobile"
-              onClick={closeMobileMenu}
-            >
-              Login
-            </NavLink>
-          </li>
-        </ul>
-        <Button />
-      </nav>
+          <Navbar.Brand className="fw-bold fs-4" href="/">
+            First Aid NZ
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="/products">Products</Nav.Link>
+              <Nav.Link href="/courses">Courses</Nav.Link>
+              <NavDropdown title="Our Services" id="collasible-nav-dropdown">
+                <NavDropdown.Item href="/screening">
+                  Health & Drug Screening
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/medics">Event Medics</NavDropdown.Item>
+                <NavDropdown.Item href="/courses">
+                  First Aid Courses
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+            <Nav>
+              <Nav.Link href="/about">About Us</Nav.Link>
+              <Nav.Link eventKey={2} href="/contact">
+                Contact Us
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </>
   );
 }
 
-export default Navbar;
+export default NavbarComponent;
