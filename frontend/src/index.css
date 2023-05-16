@@ -26,6 +26,20 @@ body {
   min-height: 100svh;
 }
 
+/* DELETE IF CUSTOM BOOTSTRAP THEMEING IMPLEMENTED*/
+
+#collasible-nav-dropdown:hover {
+  color: #6baf54;
+}
+
+#collasible-nav-dropdown {
+  color: #ff4d3c;
+}
+
+.link-fanzRed:hover {
+  color: #6baf54 !important;
+}
+
 .pages {
   max-width: 1400px;
   margin: 0 auto;

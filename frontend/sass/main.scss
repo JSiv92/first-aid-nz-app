@@ -1,0 +1,18 @@
+//custom colors
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+
+$-active-color: "#6baf54";
+
+$custom-theme-colors: (
+  "fanzRed": #ff4d3c,
+  "fanzGreen": #295c33,
+  "fanzLightGreen": #6baf54,
+  "fanzFontColor": rgb(20, 25, 46),
+  "fanzWhite": rgb(250, 250, 250),
+);
+
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);
+
+//import bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";

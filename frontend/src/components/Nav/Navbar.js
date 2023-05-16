@@ -4,6 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import React from "react";
 import logo from "../../assets/fanzLogo.png";
+import { Link } from "react-router-dom";
 
 function NavbarComponent() {
   return (
@@ -26,22 +27,66 @@ function NavbarComponent() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="/products">Products</Nav.Link>
-              <Nav.Link href="/courses">Courses</Nav.Link>
-              <NavDropdown title="Our Services" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="/screening">
-                  Health & Drug Screening
+              <Nav.Link>
+                <Link
+                  className="text-decoration-none link-fanzRed"
+                  to="/products"
+                >
+                  Products
+                </Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link
+                  className="text-decoration-none link-fanzRed"
+                  to="/courses"
+                >
+                  Courses
+                </Link>
+              </Nav.Link>
+              <NavDropdown
+                menuVariant="dark"
+                title="Services"
+                id="collasible-nav-dropdown"
+              >
+                <NavDropdown.Item>
+                  <Link
+                    className="text-decoration-none link-fanzRed"
+                    to="/screening"
+                  >
+                    Health & Drug Screening
+                  </Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/medics">Event Medics</NavDropdown.Item>
-                <NavDropdown.Item href="/courses">
-                  First Aid Courses
+                <NavDropdown.Item>
+                  <Link
+                    className="text-decoration-none link-fanzRed"
+                    to="/medics"
+                  >
+                    Event Medics
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link
+                    className="text-decoration-none link-fanzRed"
+                    to="/courses"
+                  >
+                    First Aid Courses
+                  </Link>
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link href="/about">About Us</Nav.Link>
-              <Nav.Link eventKey={2} href="/contact">
-                Contact Us
+              <Nav.Link>
+                <Link className="text-decoration-none link-fanzRed" to="/about">
+                  About Us
+                </Link>
+              </Nav.Link>
+              <Nav.Link eventKey={2}>
+                <Link
+                  className="text-decoration-none link-fanzRed"
+                  to="/contact"
+                >
+                  Contact
+                </Link>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

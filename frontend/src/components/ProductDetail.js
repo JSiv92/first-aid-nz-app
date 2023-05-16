@@ -3,6 +3,7 @@
 */
 
 import React from "react";
+import Button from "react-bootstrap/Button";
 
 const ProductDetails = ({ product }) => {
   return (
@@ -13,6 +14,8 @@ const ProductDetails = ({ product }) => {
       </p>
       <p>Description: {product.description}</p>
       <p>{product.createdAt}</p>
+      <br />
+      <Button variant="success">Buy</Button>
     </div>
   );
 };
