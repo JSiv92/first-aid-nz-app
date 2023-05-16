@@ -28,15 +28,12 @@ body {
 
 .pages {
   max-width: 1400px;
-  padding: 20px;
   margin: 0 auto;
 }
 
 /*div for -Page files*/
 .page {
-  background-color: red;
-  border-radius: 8px;
-  padding: 25px;
+  background-color: #ff4d3c;
 }
 
 .product-details {

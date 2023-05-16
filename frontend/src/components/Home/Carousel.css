@@ -1,0 +1,16 @@
+.carousel-item {
+  width: 100%;
+  height: 240px;
+  background-color: #295c33;
+}
+
+.slide {
+  width: 100%;
+}
+
+h3 {
+  color: white;
+}
+
+.carousel-caption {
+}

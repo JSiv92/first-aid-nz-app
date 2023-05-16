@@ -17,7 +17,7 @@ h4 {
   background: rgb(28, 27, 27) 0%;
   padding: 15px;
 }
-
+/*increase line height for contact info in footer*/
 .fw-lighter {
   line-height: 2;
 }
