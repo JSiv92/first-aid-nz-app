@@ -28,15 +28,15 @@ const router = express.Router();
 router.get("/products", getProducts);
 
 //get single product by id
-router.get("products/:id", getProduct);
+router.get("/products/:id", getProduct);
 
 //post a new product
 router.post("/products", createProduct);
 
 //delete a product by id
-router.delete("products/:id", deleteProduct);
+router.delete("/products/:id", deleteProduct);
 
 //update a product
-router.patch("products/:id", updateProduct);
+router.patch("/products/:id", updateProduct);
 
 module.exports = router;
