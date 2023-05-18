@@ -6,3 +6,13 @@ div.error {
   border-radius: 4px;
   margin: 20px 0;
 }
+
+.create {
+  padding: 64px;
+  border: 2px solid white;
+  margin: 10px;
+}
+
+.mb-3 {
+  color: white;
+}

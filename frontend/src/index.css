@@ -48,6 +48,7 @@ body {
 /*div for -Page files*/
 .page {
   background-color: #ff4d3c;
+  padding: 8px;
 }
 
 .product-details {

@@ -45,7 +45,7 @@ const ProductForm = () => {
   };
 
   return (
-    <Form className="create p-3" onSubmit={handleSubmit}>
+    <Form className="create" onSubmit={handleSubmit}>
       <h3>Add a New Product:</h3>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
