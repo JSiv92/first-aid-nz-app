@@ -12,7 +12,7 @@ export const quiz = {
         "Lack of oxygen to the body's cells and tissues",
         "When the body temperature drops too low",
       ],
-      type: "L1",
+      level: 1,
       correctAnswer: "Lack of oxygen to the body's cells and tissues",
     },
     {
@@ -23,7 +23,7 @@ export const quiz = {
         "90 - 100 per minute",
         "100 per minute",
       ],
-      type: "L2",
+      level: 2,
       correctAnswer: "100 - 120 per minute",
     },
     {
@@ -34,7 +34,7 @@ export const quiz = {
         "A form of asthma",
         "A mild allergic reaction",
       ],
-      type: "L1",
+      level: 1,
       correctAnswer: "A severe life-threatening allergic reaction",
     },
     {
@@ -46,7 +46,7 @@ export const quiz = {
         "Give two rescue breaths",
         "Check for a pulse in the neck",
       ],
-      type: "L2",
+      level: 2,
       correctAnswer: "Call for emergency medical help and a defibrillator",
     },
     {
@@ -57,7 +57,7 @@ export const quiz = {
         "Cardiopulmonary Recovery",
         "Cardiopodiatric Revival",
       ],
-      type: "L1",
+      level: 1,
       correctAnswer: "Cardiopulmonary Resuscitation",
     },
     {
@@ -69,7 +69,7 @@ export const quiz = {
         "Face, Arms, Speech, Technique",
         "Face, Arms, Speech, Time",
       ],
-      type: "L2",
+      level: 2,
       correctAnswer: "Face, Arms, Speech, Time",
     },
   ],

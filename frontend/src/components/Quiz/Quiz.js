@@ -9,6 +9,7 @@ const Quiz = () => {
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
+  const [showResult, setShowResult] = useState(false);
   const [result, setResult] = useState({
     score: 0,
     correctAnswers: 0,
@@ -22,7 +23,6 @@ const Quiz = () => {
   //NEXT button - +1 to activeQuestion index, check answer, update results state
   const onClickNext = () => {
     setSelectedAnswerIndex(null);
-    setActiveQuestion((prev) => prev + 1);
     setResult((prev) =>
       selectedAnswer
         ? {
@@ -32,13 +32,19 @@ const Quiz = () => {
           }
         : { ...prev, wrongAnswers: prev.wrongAnswers + 1 }
     );
+    if (activeQuestion !== questions.length - 1) {
+      setActiveQuestion((prev) => prev + 1);
+    } else {
+      setActiveQuestion(0);
+      setShowResult(true);
+    }
   };
 
   //Answer Selector - match selected answer with answer in QuizQuestions.js
   // pass index of selection to highlight user selection
   const onAnswerSelected = (answer, index) => {
     setSelectedAnswerIndex(index);
-    if (answer === questions.correctAnswer) {
+    if (answer === correctAnswer) {
       setSelectedAnswer(true);
       console.log("Correct");
     } else {
@@ -49,27 +55,47 @@ const Quiz = () => {
 
   return (
     <div className="container-md">
-      <div className="quiz-box">
-        <h1>Test Your Knowledge</h1>
-        <hr></hr>
-        <h2>{question}</h2>
-        <ul>
-          {choices.map((answer, index) => (
-            <li
-              onClick={() => onAnswerSelected(answer, index)}
-              key={answer}
-              className={
-                selectedAnswerIndex === index ? "selected-answer" : null
-              }
-            >
-              {answer}
-            </li>
-          ))}
-        </ul>
-        <Button variant="success" onClick={onClickNext}>
-          Next
-        </Button>
-      </div>
+      {!showResult ? (
+        <div className="quiz-box">
+          <h1>Test Your Knowledge</h1>
+          <hr />
+          <h2>{question}</h2>
+          <ul>
+            {choices.map((answer, index) => (
+              <li
+                onClick={() => onAnswerSelected(answer, index)}
+                key={answer}
+                className={
+                  selectedAnswerIndex === index ? "selected-answer" : null
+                }
+              >
+                {answer}
+              </li>
+            ))}
+          </ul>
+          <Button
+            variant="success"
+            onClick={onClickNext}
+            disabled={selectedAnswerIndex === null}
+          >
+            {activeQuestion === questions.length - 1 ? "Submit" : "Next"}
+          </Button>
+        </div>
+      ) : (
+        <div className="result">
+          <h3>Result</h3>
+
+          <p>
+            You scored:<span> {result.score}</span>
+          </p>
+          <p>
+            Correct Answers:<span> {result.correctAnswers}</span>
+          </p>
+          <p>
+            Wrong Answers:<span> {result.wrongAnswers}</span>
+          </p>
+        </div>
+      )}
     </div>
   );
 };

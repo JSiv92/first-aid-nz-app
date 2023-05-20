@@ -39,7 +39,7 @@
 .quiz-box ul li {
   text-decoration: none;
   list-style: none;
-  color: #2d264b;
+  color: #1d293e;
   font-size: 16px;
   background: #ffffff;
   border: 1px solid #eaeaea;
@@ -56,7 +56,7 @@
 }
 
 .quiz-box button {
-  background: linear-gradient(90.04deg, #ff4d3c 0.1%, #f66053 99%);
+  background: linear-gradient(90.04deg, #ff4d3c 0.1%, #fe7a6e 99%);
   border-radius: 9px;
   font-size: 18px;
   color: #ffffff;
