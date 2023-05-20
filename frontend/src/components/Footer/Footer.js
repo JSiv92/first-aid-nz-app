@@ -33,10 +33,18 @@ const Footer = () => {
                 <ul className="list-unstyled mb-0">
                   <li>
                     <a
+                      href="/products"
+                      className="text-decoration-none text-secondary"
+                    >
+                      Products
+                    </a>
+                  </li>
+                  <li>
+                    <a
                       href="/courses"
                       className="text-decoration-none text-secondary"
                     >
-                      Courses
+                      First Aid Courses
                     </a>
                   </li>
                   <li>
@@ -44,7 +52,7 @@ const Footer = () => {
                       href="/medics"
                       className="text-decoration-none text-secondary"
                     >
-                      Events
+                      Event Medics
                     </a>
                   </li>
                   <li>
@@ -53,14 +61,6 @@ const Footer = () => {
                       className="text-decoration-none text-secondary"
                     >
                       Health & Drug Screening
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/products"
-                      className="text-decoration-none text-secondary"
-                    >
-                      Products
                     </a>
                   </li>
                 </ul>
