@@ -41,8 +41,8 @@
   list-style: none;
   color: #1d293e;
   font-size: 16px;
-  background: #ffffff;
-  border: 1px solid #eaeaea;
+  background: #fafafa;
+  border: 1px solid #efefef;
   border-radius: 16px;
   padding: 11px;
   margin-top: 15px;
@@ -52,7 +52,7 @@
 .quiz-box ul .selected-answer {
   background: linear-gradient(90.04deg, #295c33 0.1%, #6baf54 99%);
   border: 1px solid #6baf54;
-  color: #fff;
+  color: #fafafa;
 }
 
 .quiz-box button {
@@ -77,6 +77,7 @@
   font-size: 24px;
   letter-spacing: 1.4px;
   text-align: center;
+  color: #6baf54;
 }
 
 .result p {
@@ -87,4 +88,13 @@
 .result p span {
   color: #6baf54;
   font-size: 22px;
+}
+
+.result {
+  max-width: 600px;
+  min-width: 300px;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-top: 4px;
+  padding: 20px 40px;
 }

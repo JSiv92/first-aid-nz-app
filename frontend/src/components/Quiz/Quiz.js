@@ -83,17 +83,19 @@ const Quiz = () => {
         </div>
       ) : (
         <div className="result">
-          <h3>Result</h3>
-
-          <p>
-            You scored:<span> {result.score}</span>
-          </p>
-          <p>
-            Correct Answers:<span> {result.correctAnswers}</span>
-          </p>
-          <p>
-            Wrong Answers:<span> {result.wrongAnswers}</span>
-          </p>
+          <h3>Your Results</h3>
+          <hr />
+          <div className="resultsbox">
+            <p>
+              Your Score:<span> {result.score}/6</span>
+            </p>
+            <p>
+              Correct:<span> {result.correctAnswers}</span>
+            </p>
+            <p>
+              Wrong:<span> {result.wrongAnswers}</span>
+            </p>
+          </div>
         </div>
       )}
     </div>
