@@ -6,8 +6,10 @@ import Quiz from "../components/Quiz/Quiz.js";
 const CoursesPage = () => {
   return (
     <div className="page">
-      <h2 style={{ color: "white" }}>First Aid Courses</h2>
-      <Quiz />
+      <div className="content">
+        <h2 style={{ color: "white" }}>First Aid Courses</h2>
+        <Quiz />
+      </div>
     </div>
   );
 };

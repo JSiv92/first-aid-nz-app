@@ -6,7 +6,9 @@ import React from "react";
 const MedicPage = () => {
   return (
     <div className="page">
-      <h2 style={{ color: "white" }}>Event Medics</h2>
+      <div className="content">
+        <h2 style={{ color: "white" }}>Event Medics</h2>
+      </div>
     </div>
   );
 };

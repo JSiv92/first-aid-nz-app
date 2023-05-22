@@ -9,9 +9,11 @@ const ShopPage = () => {
   return (
     <>
       <div className="page">
-        <h2 style={{ color: "white" }}>Shop</h2>
-        <Shop />
-        <ProductForm />
+        <div className="content">
+          <h2 style={{ color: "white" }}>Shop</h2>
+          <Shop />
+          <ProductForm />
+        </div>
       </div>
     </>
   );

@@ -27,7 +27,7 @@ function App() {
       <div className="pageWrapper">
         <BrowserRouter>
           <Navbar />
-          <div className="pages">
+          <div>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/products" element={<ShopPage />} />

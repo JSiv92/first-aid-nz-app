@@ -6,7 +6,9 @@ import React from "react";
 const LearnPage = () => {
   return (
     <div className="page">
-      <h2 style={{ color: "white" }}>Learn</h2>
+      <div className="content">
+        <h2 style={{ color: "white" }}>Learn</h2>
+      </div>
     </div>
   );
 };

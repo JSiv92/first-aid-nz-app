@@ -6,7 +6,9 @@ import React from "react";
 const ScreeningPage = () => {
   return (
     <div className="page">
-      <h2 style={{ color: "white" }}>Health and Drug Screening</h2>
+      <div className="content">
+        <h2 style={{ color: "white" }}>Health and Drug Screening</h2>
+      </div>
     </div>
   );
 };

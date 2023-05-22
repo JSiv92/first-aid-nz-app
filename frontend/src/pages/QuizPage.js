@@ -6,7 +6,9 @@ import React from "react";
 const QuizPage = () => {
   return (
     <div className="page">
-      <h2 style={{ color: "white" }}>Test Your Knowledge</h2>
+      <div className="content">
+        <h2 style={{ color: "white" }}>Test Your Knowledge</h2>
+      </div>
     </div>
   );
 };

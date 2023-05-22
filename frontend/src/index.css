@@ -8,10 +8,10 @@
 }
 
 body {
-  background: #ff4d3c;
+  background: linear-gradient(180deg, #ff4d3c 0.1%, #9c352b 99%);
   height: 100%;
   margin: 0;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
 }
 
 * {
@@ -40,15 +40,14 @@ body {
   color: #6baf54 !important;
 }
 
-.pages {
+/*this container is for the whole page skeleton*/
+.page {
   max-width: 1400px;
   margin: 0 auto;
 }
-
-/*div for -Page files*/
-.page {
-  background-color: #ff4d3c;
-  padding: 8px;
+/*this div will be nested inside a .page div and hold all the content*/
+.content {
+  padding: 16px;
 }
 
 .product-details {
