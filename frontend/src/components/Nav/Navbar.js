@@ -27,7 +27,7 @@ function NavbarComponent() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link>
+              <Nav.Link eventKey={2}>
                 <Link
                   className="text-decoration-none link-fanzRed"
                   to="/products"
@@ -35,7 +35,7 @@ function NavbarComponent() {
                   Products
                 </Link>
               </Nav.Link>
-              <Nav.Link>
+              <Nav.Link eventKey={2}>
                 <Link
                   className="text-decoration-none link-fanzRed"
                   to="/courses"
@@ -75,7 +75,7 @@ function NavbarComponent() {
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link>
+              <Nav.Link eventKey={2}>
                 <Link className="text-decoration-none link-fanzRed" to="/about">
                   About Us
                 </Link>
