@@ -8,8 +8,9 @@ const express = require("express");
 //require the mongoose package
 const mongoose = require("mongoose");
 
-//product routes in routes directory: routes/products.js
+//routes in routes directory: eg routes/products.js
 const productRoutes = require("./routes/products");
+const courseRoutes = require("./routes/courses");
 
 //start express app
 const app = express();
@@ -23,8 +24,9 @@ app.use((req, res, next) => {
   next();
 });
 
-//ROUTING: grabs all routes configured in routes/products.js from productRoutes variable
+//ROUTING: grabs all routes configured in routes folders
 app.use("/api/", productRoutes);
+app.use("/api/", courseRoutes);
 
 //connect to DB
 mongoose
