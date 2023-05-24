@@ -20,7 +20,8 @@ const courseSchema = new Schema(
       required: true,
     },
     date: {
-      type: Date,
+      type: String,
+      required: true,
     },
     location: {
       type: String,
@@ -28,7 +29,6 @@ const courseSchema = new Schema(
     },
     spotsLeft: {
       type: Number,
-      required: true,
     },
   },
   {
