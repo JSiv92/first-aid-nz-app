@@ -5,6 +5,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import React from "react";
 import logo from "../../assets/fanzLogo.png";
 import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 function NavbarComponent() {
   return (
@@ -24,7 +25,7 @@ function NavbarComponent() {
           <Navbar.Brand className="fw-bold fs-4" href="/">
             First Aid NZ
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Toggle id="burger" aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link eventKey={2}>

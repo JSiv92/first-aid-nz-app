@@ -19,7 +19,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 
 //import other components to nest inside this component
-import CourseDetail from "./CourseDetail";
+import Button from "react-bootstrap/Button";
 
 const AllCourses = () => {
   const [courses, setCourses] = useState(null);
@@ -39,13 +39,35 @@ const AllCourses = () => {
     fetchCourses();
   }, []);
 
+  //get all courses and map to table
   return (
     <div className="AllCourses">
       <div className="courses">
-        {courses &&
-          courses.map((course) => (
-            <CourseDetail key={course._id} course={course} />
-          ))}
+        <table className="table table-striped">
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Location</th>
+              <th>Date</th>
+              <th>Price</th>
+              <th>Book Now</th>
+            </tr>
+          </thead>
+          <tbody>
+            {courses &&
+              courses.map((course) => (
+                <tr key={course._id}>
+                  <td>{course.courseName}</td>
+                  <td>{course.location}</td>
+                  <td>{course.date}</td>
+                  <td>${course.price}</td>
+                  <td>
+                    <Button variant="success">Enrol</Button>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
