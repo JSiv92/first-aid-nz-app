@@ -2,6 +2,7 @@
 import React from "react";
 
 //components
+import PageHeading from "../components/PageHeading";
 import Quiz from "../components/Quiz/Quiz.js";
 import AllCourses from "../components/Courses/AllCourses";
 import CourseForm from "../components/Courses/CourseForm.js";
@@ -10,7 +11,7 @@ const CoursesPage = () => {
   return (
     <div className="page">
       <div className="content">
-        <h2 style={{ color: "white" }}>First Aid Courses</h2>
+        <PageHeading text="First Aid Courses" />
         <AllCourses />
         <CourseForm />
         <Quiz />

@@ -2,6 +2,7 @@
 import React from "react";
 
 //components
+import PageHeading from "../components/PageHeading";
 import Shop from "../components/Shop.js";
 import ProductForm from "../components/ProductForm.js";
 
@@ -10,7 +11,7 @@ const ShopPage = () => {
     <>
       <div className="page">
         <div className="content">
-          <h2 style={{ color: "white" }}>Shop</h2>
+          <PageHeading text="Our Products" />
           <Shop />
           <ProductForm />
         </div>

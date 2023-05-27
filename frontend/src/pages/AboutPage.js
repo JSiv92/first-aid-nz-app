@@ -1,13 +1,13 @@
-//blank react component for page
 import React from "react";
 
 //components
+import PageHeading from "../components/PageHeading";
 
 const AboutPage = () => {
   return (
     <div className="page">
       <div className="content">
-        <h2 style={{ color: "white" }}>About Us</h2>
+        <PageHeading text="About Us" />
       </div>
     </div>
   );

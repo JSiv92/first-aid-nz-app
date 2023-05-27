@@ -2,13 +2,16 @@
 import React from "react";
 
 //components
+import PageHeading from "../components/PageHeading";
 import ContactForm from "../components/Contact/ContactForm.js";
 
 const ContactPage = () => {
   return (
     <div className="page">
-      <h2 style={{ color: "white" }}>Contact Us</h2>
-      <ContactForm />
+      <div className="content">
+        <PageHeading text="Contact Us" />
+        <ContactForm />
+      </div>
     </div>
   );
 };

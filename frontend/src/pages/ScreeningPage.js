@@ -2,12 +2,13 @@
 import React from "react";
 
 //components
+import PageHeading from "../components/PageHeading";
 
 const ScreeningPage = () => {
   return (
     <div className="page">
       <div className="content">
-        <h2 style={{ color: "white" }}>Health and Drug Screening</h2>
+        <PageHeading text="Health Screening" />
       </div>
     </div>
   );

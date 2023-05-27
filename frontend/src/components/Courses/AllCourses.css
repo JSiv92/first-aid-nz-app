@@ -1,0 +1,22 @@
+tr {
+  font-size: 0.8rem;
+}
+
+.AllCourses {
+  padding: 16px;
+  background-color: rgb(250, 250, 250);
+  border-radius: 8px;
+}
+
+.filterTable {
+  width: 320px;
+}
+
+h5 {
+  text-align: center;
+  color: rgb(20, 25, 46);
+}
+
+input:focus {
+  outline-color: 1px solid #6baf54;
+}

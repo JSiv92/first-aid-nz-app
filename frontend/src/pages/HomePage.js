@@ -11,7 +11,6 @@ import "./HomePage.css";
 
 //images
 import ambo from "../assets/ambulance.png";
-import cpr from "../assets/cpr.png";
 import bandaid from "../assets/band-aid.png";
 
 //components
