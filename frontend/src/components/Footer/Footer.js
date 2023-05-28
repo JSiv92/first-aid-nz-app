@@ -12,7 +12,9 @@ const Footer = () => {
           <div className="container p-4">
             <div className="row">
               <div className="col-lg-6 col-md-12 mb-4 mb-md-0">
-                <h5 className="fw-bold fs-4">Contact Us:</h5>
+                <h5 className="text-center text-md-start fw-bold fs-4">
+                  Contact Us
+                </h5>
 
                 <p className="fw-lighter text-secondary">
                   <i className="fas fa-home me-3"></i>22 Ocean View Road,
@@ -28,7 +30,9 @@ const Footer = () => {
                 </p>
               </div>
               <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 className="fw-bold fs-4">Our Services</h5>
+                <h5 className="text-center text-md-start fw-bold fs-4">
+                  Our Services
+                </h5>
 
                 <ul className="list-unstyled mb-0">
                   <li>
@@ -66,7 +70,7 @@ const Footer = () => {
                 </ul>
               </div>
               <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 className="fw-bold fs-4">Info</h5>
+                <h5 className="text-center text-md-start fw-bold fs-4">Info</h5>
 
                 <ul className="list-unstyled mb-0">
                   <li>

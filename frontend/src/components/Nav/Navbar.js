@@ -5,7 +5,6 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import React from "react";
 import logo from "../../assets/fanzLogo.png";
 import { Link } from "react-router-dom";
-import "./Navbar.css";
 
 function NavbarComponent() {
   return (
@@ -21,7 +20,6 @@ function NavbarComponent() {
               className="d-inline-block align-top"
             />
           </Navbar.Brand>
-
           <Navbar.Brand className="fw-bold fs-4" href="/">
             First Aid NZ
           </Navbar.Brand>

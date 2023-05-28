@@ -80,66 +80,114 @@ const AllCourses = () => {
 
   //map courses to table
   return (
-    <div className="AllCourses">
-      <div className="filterTable">
-        <Form.Control
-          type="text"
-          size="sm"
-          placeholder="Enter a Course, Location or Date:"
-          value={searchQuery}
-          onChange={handleSearch}
-        />
+    <>
+      <div className="courseInfo">
+        <h4>
+          <i class="fa-solid fa-circle-info"></i>
+          <strong> Pre-Course Information</strong>
+        </h4>
+        <hr />
+        <p>
+          Lorem Ipsum has been the industry's standard dummy text ever since the
+          1500s, when an unknown printer took a galley of type and scrambled it
+          to make a type specimen book. It has survived not only five centuries,
+          but also the leap into electronic typesetting, remaining essentially
+          unchanged.
+          <br /> It was popularised in the 1960s with the release of Letraset
+          sheets containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum
+        </p>
       </div>
-      <br />
-      <div className="courses">
-        <Table size="md" responsive striped bordered hover className="table">
-          <thead>
-            <tr>
-              <th>
-                <Button
-                  variant="outline-fanzFontColor"
-                  size="sm"
-                  onClick={() => handleSort("courseName")}
-                >
-                  Course
-                  {sortColumn === "courseName" && sortOrder === 1 && " ▲"}
-                  {sortColumn === "courseName" && sortOrder === -1 && " ▼"}
-                </Button>
-              </th>
-              <th>
-                <Button
-                  variant="outline-fanzFontColor"
-                  size="sm"
-                  onClick={() => handleSort("location")}
-                >
-                  Location
-                  {sortColumn === "location" && sortOrder === 1 && " ▲"}
-                  {sortColumn === "location" && sortOrder === -1 && " ▼"}
-                </Button>
-              </th>
-              <th>Date</th>
-              <th>Price</th>
-              <th>Book Now</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredResult.map((course) => (
-              <tr key={course._id}>
-                <td>{course.courseName}</td>
-                <td>{course.location}</td>
-                <td>{course.date}</td>
-                <td>${course.price}</td>
-                <td>
-                  <Button size="sm" variant="success">
-                    Enrol
-                  </Button>
-                </td>
+      <div className="AllCourses">
+        <h4>
+          <i class="fa-solid fa-graduation-cap"></i>
+          <strong> Our Courses</strong>
+        </h4>
+        <hr />
+        <div className="filterTable mb-2">
+          <Form.Control
+            type="text"
+            size="sm"
+            placeholder="Enter a Course, Location or Date:"
+            value={searchQuery}
+            onChange={handleSearch}
+          />
+        </div>
+        <div className="courses">
+          <Table size="md" responsive striped bordered hover className="table">
+            <thead>
+              <tr class="text-white bg-fanzGreen">
+                <th>
+                  <div className="d-grid gap-2">
+                    <Button
+                      variant="outline-fanzWhite"
+                      size="sm"
+                      onClick={() => handleSort("courseName")}
+                    >
+                      Course
+                      {sortColumn === "courseName" && sortOrder === 1 && " ▲"}
+                      {sortColumn === "courseName" && sortOrder === -1 && " ▼"}
+                    </Button>
+                  </div>
+                </th>
+                <th>
+                  <div className="d-grid gap-2">
+                    <Button
+                      variant="outline-fanzWhite"
+                      size="sm"
+                      onClick={() => handleSort("location")}
+                    >
+                      Location
+                      {sortColumn === "location" && sortOrder === 1 && " ▲"}
+                      {sortColumn === "location" && sortOrder === -1 && " ▼"}
+                    </Button>
+                  </div>
+                </th>
+                <th className="text-center">Date</th>
+                <th className="text-center">Price</th>
+                <th className="text-center">Book Now</th>
               </tr>
-            ))}
-          </tbody>
-        </Table>
+            </thead>
+            <tbody>
+              {filteredResult.map((course) => (
+                <tr key={course._id}>
+                  <td>{course.courseName}</td>
+                  <td>{course.location}</td>
+                  <td>{course.date}</td>
+                  <td>${course.price}</td>
+                  <td>
+                    <div className="d-grid gap-2">
+                      <Button size="sm" variant="success">
+                        Enrol
+                      </Button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
       </div>
-    </div>
+      <div className="courseInfo">
+        <h4>
+          <i class="fa-solid fa-location-dot"></i>
+          <strong> Course Locations</strong>
+        </h4>
+        <hr />
+        <p>
+          Lorem Ipsum has been the industry's standard dummy text ever since the
+          1500s, when an unknown printer took a galley of type and scrambled it
+          to make a type specimen book. It has survived not only five centuries,
+          but also the leap into electronic typesetting, remaining essentially
+          unchanged.
+          <br /> It was popularised in the 1960s with the release of Letraset
+          sheets containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum
+        </p>
+      </div>
+    </>
   );
 };
 

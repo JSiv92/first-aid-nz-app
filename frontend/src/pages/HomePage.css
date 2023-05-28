@@ -5,15 +5,7 @@
   padding: 50px;
   text-align: center;
   font-style: italic;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: thin;
   margin-top: 8px;
-}
-
-.p-2 {
-  width: 250px;
-  height: auto;
 }
 
 .book {
