@@ -5,13 +5,10 @@ import Form from "react-bootstrap/Form";
 const ContactForm = () => {
   return (
     <div className="page">
-      <h1 className="display-1">
-        <strong>Get in Touch</strong>
-      </h1>
       <Form className="">
         <Form.Group className="mb-3" controlId="nameGroup">
           <Form.Label>Your Name</Form.Label>
-          <Form.Control type="email" placeholder="you@example.com" required />
+          <Form.Control type="email" placeholder="" required />
         </Form.Group>
         <Form.Group className="mb-3" controlId="emailGroup">
           <Form.Label>Email Address</Form.Label>
