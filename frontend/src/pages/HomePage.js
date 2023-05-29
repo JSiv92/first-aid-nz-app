@@ -9,10 +9,6 @@ import Button from "react-bootstrap/Button";
 //stylesheet
 import "./HomePage.css";
 
-//images
-import ambo from "../assets/ambulance.png";
-import bandaid from "../assets/band-aid.png";
-
 //components
 import Carousel from "../components/Home/Carousel.js";
 

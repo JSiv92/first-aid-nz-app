@@ -15,14 +15,16 @@ JS 06/may/2023
 */
 
 //SHOP COMPONENT//
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import React from "react";
 
 //import other components to nest inside this component
 import ProductDetails from "../components/ProductDetail";
+//context hook
+import { useProductsContext } from "../hooks/useProductsContext";
 
 const Shop = () => {
-  const [products, setProducts] = useState(null);
+  const { products, dispatch } = useProductsContext();
 
   //useeffect hook
   useEffect(() => {
@@ -32,12 +34,12 @@ const Shop = () => {
 
       //check response is ok
       if (response.ok) {
-        setProducts(json);
+        dispatch({ type: "SET_PRODUCTS", payload: json });
       }
     };
 
     fetchProducts();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="Shop">

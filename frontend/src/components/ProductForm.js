@@ -2,10 +2,13 @@ import React from "react";
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { useProductsContext } from "../hooks/useProductsContext";
 
 import "./ProductForm.css";
 
 const ProductForm = () => {
+  //invoke custom hook
+  const { dispatch } = useProductsContext();
   //state of each form property
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0.0);
@@ -41,6 +44,8 @@ const ProductForm = () => {
       setError(null);
 
       console.log("new product added", json);
+
+      dispatch({ type: "CREATE_PRODUCT", payload: json });
     }
   };
 
