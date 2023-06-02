@@ -1,0 +1,18 @@
+.card {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  color: #d51300;
+}
+
+.card-title {
+  color: #295c33;
+  font-style: italic;
+}
+
+.card-text {
+  color: #1d293e;
+}
+
+.card-date {
+  color: #797e85;
+}

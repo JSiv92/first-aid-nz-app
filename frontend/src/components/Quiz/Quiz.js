@@ -53,11 +53,24 @@ const Quiz = () => {
     }
   };
 
+  // Restart the quiz at end by resetting the state
+  const restartQuiz = () => {
+    setActiveQuestion(0);
+    setSelectedAnswer("");
+    setSelectedAnswerIndex(null);
+    setShowResult(false);
+    setResult({
+      score: 0,
+      correctAnswers: 0,
+      wrongAnswers: 0,
+    });
+  };
+
   return (
     <div className="container-md">
       {!showResult ? (
         <div className="quiz-box">
-          <h1>Test Your Knowledge</h1>
+          <h3>Test Your Knowledge</h3>
           <hr />
           <h2>{question}</h2>
           <ul>
@@ -95,6 +108,9 @@ const Quiz = () => {
             <p>
               Wrong:<span> {result.wrongAnswers}</span>
             </p>
+            <Button variant="success" onClick={restartQuiz}>
+              <i class="fa-solid fa-rotate-left"></i> Try Again
+            </Button>
           </div>
         </div>
       )}

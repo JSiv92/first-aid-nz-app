@@ -1,0 +1,16 @@
+form {
+  max-width: 600px;
+  min-width: 300px;
+  background-color: #ff4c3c32;
+  border-radius: 8px;
+  margin-top: 4px;
+  padding: 20px 40px;
+}
+
+h6 {
+  color: #fafafa;
+}
+
+p {
+  color: #fafafa;
+}
