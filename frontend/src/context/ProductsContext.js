@@ -23,7 +23,9 @@ export const productsReducer = (state, action) => {
 
 //let components access this context by wrapping in a context provider component:
 export const ProductsContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(productsReducer, { products: null });
+  const [state, dispatch] = useReducer(productsReducer, {
+    products: null,
+  });
 
   return (
     <ProductsContext.Provider value={{ ...state, dispatch }}>

@@ -20,13 +20,17 @@ import React from "react";
 
 //import other components to nest inside this component
 import ProductDetails from "../components/ProductDetail";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 //context hook
 import { useProductsContext } from "../hooks/useProductsContext";
 
 const Shop = () => {
   const { products, dispatch } = useProductsContext();
 
-  //useeffect hook
+  // Function to add items to the cart
+
+  //fetch products from db useeffect hook using the productscontext if result ok
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await fetch("/api/products");
@@ -43,11 +47,15 @@ const Shop = () => {
 
   return (
     <div className="Shop">
-      <div className="products">
-        {products &&
-          products.map((product) => (
-            <ProductDetails key={product._id} product={product} />
-          ))}
+      <div className="products h-100">
+        <Row className="g-4" sm={1} md={3}>
+          {products &&
+            products.map((product) => (
+              <Col>
+                <ProductDetails key={product._id} product={product} />
+              </Col>
+            ))}
+        </Row>
       </div>
     </div>
   );

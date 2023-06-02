@@ -13,8 +13,8 @@ const ShopPage = () => {
         <div className="content">
           <PageHeading text="Our Products" />
           <Shop />
-          <ProductForm />
         </div>
+        <ProductForm />
       </div>
     </>
   );
