@@ -124,7 +124,7 @@ const Footer = () => {
             </a>
           </section>
           <div className="text-center">
-            <p>
+            <p className="fw-lighter text-secondary">
               © {year} Copyright&nbsp;
               <a
                 className="text-decoration-none text-secondary"

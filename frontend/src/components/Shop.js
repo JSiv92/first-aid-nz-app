@@ -25,6 +25,8 @@ import Col from "react-bootstrap/Col";
 //context hook
 import { useProductsContext } from "../hooks/useProductsContext";
 
+import "./Shop.css";
+
 const Shop = () => {
   const { products, dispatch } = useProductsContext();
 
@@ -47,6 +49,65 @@ const Shop = () => {
 
   return (
     <div className="Shop">
+      <div className="h-100">
+        <Row className="g-4" sm={1} md={2}>
+          <Col className="">
+            <div className="shopInfo">
+              <h4>
+                <i class="fa-solid fa-briefcase-medical"></i> Products and
+                Services
+              </h4>
+              <hr />
+              <p>
+                First Aid NZ offer a range of Physio-Control Lifepac
+                Defibrillators (for sale or rent), defibrillator accessories and
+                first aid supplies. We believe anyone can be a heartsaver with
+                our AED training.
+              </p>
+              <p>
+                Our products are of the best quality and are competitively
+                priced.
+              </p>
+              <p>
+                We are also able to offer regular servicing of your first aid
+                stations and kits at a small charge.
+              </p>
+              <p>
+                For all product and service related enquiries:
+                <br />
+                <strong>Email Us - info@firstaidnz.co.nz</strong>
+              </p>
+            </div>
+          </Col>
+
+          <Col className="">
+            <div className="defibInfo">
+              <h4>
+                <i class="fa-solid fa-bolt"></i> Defibrillators
+              </h4>
+              <hr />
+              <p>Not all AED Defibrillators are made the same.</p>
+
+              <p>
+                Our <strong>Lifepac</strong> AED Defibrillators carry an 8 year
+                warranty with Servicing and Calibration service available in NZ.
+              </p>
+              <p>
+                Lifepac Defibrillators can achieve shocks of up to 360 joules.
+                Latest study results from 2017 show shocks at a lower Joule
+                rating may not be enough (Open Access Emergency Medicine March
+                2017). This backs earlier studies from 2009.
+              </p>
+              <p>
+                Lifepac Defibrillators are used by Ambulance services, Fire
+                Service and Hospitals throughout NZ (the same pads stay in place
+                right through from the First Aider to Hospital).
+              </p>
+            </div>
+          </Col>
+        </Row>
+      </div>
+
       <div className="products h-100">
         <Row className="g-4" sm={1} md={3}>
           {products &&

@@ -25,7 +25,6 @@ import Table from "react-bootstrap/Table";
 
 const AllCourses = () => {
   const [courses, setCourses] = useState(null);
-  const [cart, setCart] = useState([]); //set empty array for cart
   const [sortColumn, setSortColumn] = useState(""); //to track the column to sort
   const [sortOrder, setSortOrder] = useState(1); //track the sorting order for column
   const [searchQuery, setSearchQuery] = useState(""); //filter by input
@@ -78,11 +77,6 @@ const AllCourses = () => {
 
     fetchCourses();
   }, []);
-
-  const addToCart = (course) => {
-    console.log("this is the add COURSE to cart button", course);
-    setCart([...cart, course]);
-  };
 
   //map courses to table
   return (
@@ -164,11 +158,7 @@ const AllCourses = () => {
                   <td>${course.price}</td>
                   <td>
                     <div className="d-grid gap-2">
-                      <Button
-                        onClick={() => addToCart(course)}
-                        size="sm"
-                        variant="success"
-                      >
+                      <Button size="sm" variant="success">
                         Enrol
                       </Button>
                     </div>

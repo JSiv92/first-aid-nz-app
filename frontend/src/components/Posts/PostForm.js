@@ -48,7 +48,7 @@ const PostForm = () => {
     <Form className="m-1" onSubmit={handleSubmit}>
       <h3>Share Your Experience!</h3>
       <hr></hr>
-      <p>
+      <p style={{ color: "white" }}>
         Share a scenario where you used your skills learnt with us in a real
         life situation
       </p>

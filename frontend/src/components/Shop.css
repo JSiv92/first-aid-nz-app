@@ -1,0 +1,17 @@
+.shopInfo {
+  border: 1px solid white;
+  background-color: rgba(250, 250, 250, 0.99);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.defibInfo {
+  border: 1px solid white;
+  background-color: rgba(250, 250, 250, 0.99);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.defibInfo strong {
+  color: #d51300;
+}

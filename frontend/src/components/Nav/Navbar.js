@@ -1,19 +1,24 @@
+import React, { useState } from "react";
+import logo from "../../assets/fanzLogo.png";
+import { Link } from "react-router-dom";
+import { Context } from "../../context/CartContext";
+import { useContext } from "react";
+
+//bootstrap
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Modal from "react-bootstrap/Modal";
+import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import React, { useState } from "react";
-import logo from "../../assets/fanzLogo.png";
-import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
-import { Context } from "../../context/CartContext";
-import { useContext } from "react";
+
+//stylesheets
 import "./Navbar.css";
 
 function NavbarComponent() {
   const { state } = useContext(Context);
-  const { cart } = state;
+  const { cart, totalPrice } = state;
 
   const cartItems = Object.values(cart);
   const cartItemCount = cartItems.reduce((total, item) => {
@@ -132,7 +137,7 @@ function NavbarComponent() {
                 variant="outline-fanzRed"
                 onClick={handleShow}
               >
-                <i class="fa-solid fa-cart-shopping"></i> {cartItemCount} Items
+                <i class="fa-solid fa-cart-shopping"></i> {cartItemCount}
               </Button>
             </Nav>
           </Navbar.Collapse>
@@ -147,19 +152,29 @@ function NavbarComponent() {
         </Modal.Header>
         <Modal.Body>
           {cartItems.length > 0 ? (
-            <>
-              <p className="">Cart items:</p>
-              <ul>
+            <Table striped bordered responsive>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Quantity</th>
+                  <th>Individual Price</th>
+                </tr>
+              </thead>
+              <tbody>
                 {cartItems.map((item) => (
-                  <li key={`${item.id}-${item.name}`}>
-                    {item.name} - Quantity: {item.qty}
-                  </li>
+                  <tr key={`${item.id}-${item.name}`}>
+                    <td>{item.name}</td>
+                    <td>{item.qty}</td>
+                    <td>${item.price.toFixed(2)}</td>
+                  </tr>
                 ))}
-              </ul>
-            </>
+              </tbody>
+            </Table>
           ) : (
             <p className="">Your cart is empty.</p>
           )}
+          {cartItems.length > 0 && <p>Total: ${totalPrice.toFixed(2)} NZD</p>}
+          <Button variant="fanzGreen">Checkout</Button>
         </Modal.Body>
       </Modal>
     </>
