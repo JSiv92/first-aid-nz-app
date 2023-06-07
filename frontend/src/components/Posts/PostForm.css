@@ -10,3 +10,21 @@ form {
 h6 {
   color: #fafafa;
 }
+
+.popup {
+  padding: 10px;
+  background: #e0ffd9;
+  border: #6baf54;
+  color: #6baf54;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}

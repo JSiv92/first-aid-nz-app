@@ -2,7 +2,10 @@ import React from "react";
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import "./PostForm.css";
+import Container from "react-bootstrap/esm/Container";
 
 const PostForm = () => {
   //state of each form property
@@ -85,11 +88,21 @@ const PostForm = () => {
         />
       </Form.Group>
 
-      <Button variant="fanzGreen" type="submit">
-        Post
-      </Button>
-      {error && <div className="error">{error}</div>}
-      {showPopup && <div className="popup">Message accepted!</div>}
+      <Container>
+        <Row>
+          <Col className="d-flex align-items-center" sm={4}>
+            <Button variant="fanzGreen" type="submit">
+              Post Story
+            </Button>
+          </Col>
+          <Col className="d-flex align-items-center" sm={8}>
+            {error && (
+              <div className="error">Please fill in all the fields</div>
+            )}
+            {showPopup && <div className="popup">Post submitted</div>}
+          </Col>
+        </Row>
+      </Container>
     </Form>
   );
 };

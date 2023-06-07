@@ -18,3 +18,7 @@
 .card-date {
   color: #797e85;
 }
+
+.deleteBtn {
+  cursor: pointer;
+}
