@@ -5,7 +5,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import { useContext } from "react";
-import { Context } from "../context/CartContext";
+import { Context } from "../../context/CartContext";
 
 const ProductDetails = ({ product }) => {
   const { dispatch } = useContext(Context);

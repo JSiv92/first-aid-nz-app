@@ -3,8 +3,8 @@ import React from "react";
 
 //components
 import PageHeading from "../components/PageHeading";
-import Shop from "../components/Shop.js";
-import ProductForm from "../components/ProductForm.js";
+import Shop from "../components//Shop/Shop.js";
+import ProductForm from "../components/Shop/ProductForm.js";
 
 const ShopPage = () => {
   return (

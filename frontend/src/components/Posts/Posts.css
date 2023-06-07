@@ -1,7 +1,9 @@
 .card {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   border-radius: 8px;
   color: #d51300;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  border: solid 1px #6baf54;
 }
 
 .card-title {

@@ -117,7 +117,7 @@ const AllCourses = () => {
         <div className="courses">
           <Table size="md" responsive striped bordered hover className="table">
             <thead>
-              <tr class="text-white bg-fanzGreen">
+              <tr className="text-white bg-fanzGreen">
                 <th>
                   <div className="d-grid gap-2">
                     <Button
@@ -158,7 +158,7 @@ const AllCourses = () => {
                   <td>${course.price}</td>
                   <td>
                     <div className="d-grid gap-2">
-                      <Button size="sm" variant="success">
+                      <Button size="sm" variant="outline-fanzGreen">
                         Enrol
                       </Button>
                     </div>

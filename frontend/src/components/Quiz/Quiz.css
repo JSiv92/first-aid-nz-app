@@ -1,10 +1,10 @@
 .quiz-box {
-  max-width: 600px;
-  min-width: 300px;
   background-color: #ff4c3c32;
-  border-radius: 8px;
+  border-radius: 4px;
   margin-top: 4px;
   padding: 20px 40px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border: solid 1px #6baf54;
 }
 
 .quiz-box h3 {
@@ -13,7 +13,6 @@
 
 .quiz-box h2 {
   font-size: 1.2em;
-  margin: 0;
   color: #fafafa;
   font-style: italic;
 }
@@ -77,10 +76,10 @@
 }
 
 .result {
-  max-width: 600px;
-  min-width: 300px;
   background-color: #ff4c3c32;
   border-radius: 4px;
   margin-top: 4px;
   padding: 20px 40px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border: solid 1px #6baf54;
 }

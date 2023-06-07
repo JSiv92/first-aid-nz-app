@@ -14,18 +14,17 @@ const AboutPage = () => {
     <div className="page">
       <div className="content">
         <PageHeading text="Want to learn First Aid?" />
-        <Container>
-          <Row md={12}>
-            <Col>
+        <Container className="w-100">
+          <Row className="justify-content-center">
+            <Col sm={12} md={6} lg={6} className="mb-4">
               <Quiz />
             </Col>
-            <Col>
+            <Col sm={12} md={6} lg={6} className="mb-4">
               <PostForm />
             </Col>
           </Row>
-          <Row>
-            <AllUserPosts />
-          </Row>
+
+          <AllUserPosts />
         </Container>
       </div>
     </div>

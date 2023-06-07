@@ -1,5 +1,6 @@
 tr {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.08);
 }
 
 th {
@@ -9,20 +10,23 @@ th {
 .courseInfo {
   border: 1px solid white;
   background-color: rgba(250, 250, 250, 0.99);
-  padding: 12px;
+  padding: 16px;
   border-radius: 8px;
   margin-bottom: 1rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .AllCourses {
-  padding: 12px;
+  padding: 16px;
   background-color: rgba(250, 250, 250, 0.99);
   border-radius: 8px;
   margin-bottom: 1rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .filterTable {
   width: 320px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 h4 {

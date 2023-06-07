@@ -17,22 +17,19 @@ const Home = () => {
   return (
     <>
       <Carousel />
-      <Container>
-        <div className="book fw-light">
-          Enrol in a First Aid Course Today →
-          <Button className="btn btn-sm" variant="fanzGreen">
-            Book Now
-          </Button>{" "}
-          ←
-        </div>
-        <h3 className="text3">
-          <strong>First Aid NZ Ltd</strong> has been specialising in a wide
-          range of First Aid Services for over 20 years. <br />
-          <br />
-          We are Auckland based, with a nationwide clientbase.
-        </h3>
-      </Container>
-
+      <div className="book fw-light">
+        Enrol in a First Aid Course Today →{" "}
+        <Button className="btn btn-sm" variant="fanzGreen">
+          Book Now
+        </Button>{" "}
+        ←
+      </div>
+      <h3 className="text3">
+        <strong>First Aid NZ</strong> has been specialising in a wide range of
+        First Aid services for over 20 years. <br />
+        <br />
+        We are Auckland based, with a nationwide clientbase.
+      </h3>
       <Container className="container">
         <Row className="gx-5">
           <Col className="col1" md={12} lg={4}>
@@ -76,14 +73,13 @@ const Home = () => {
         </Row>
       </Container>
 
+      <h3 className="text3">
+        Become a Lifesaver. <br />
+        Make a difference when nobody else is around.
+      </h3>
       <Container className="container">
-        <h3 className="text3">
-          Become a Lifesaver. <br />
-          Make a difference when nobody else is around.
-        </h3>
-        <Row className="gx-5">
+        <Row className="">
           <Col md={12} lg={6}>
-            {" "}
             <Image
               src="https://www.aedcpr.com/images/online-cpr-aed-first-aid-class.webp"
               rounded
@@ -91,10 +87,10 @@ const Home = () => {
               responsive
               className="mx-auto d-block"
             ></Image>
-            <h4 className="text1">
+            <h3 className="text1">
               Our personnel provide medical, hearing and health checks. We also
               offer a range of drug screening options.
-            </h4>
+            </h3>
           </Col>
           <Col md={12} lg={6}>
             <Image
@@ -104,10 +100,10 @@ const Home = () => {
               responsive
               className="mx-auto d-block"
             ></Image>
-            <h4 className="text1">
+            <h3 className="text1">
               First Aid NZ actively supports community initiatives for positive
               health & wellbeing.
-            </h4>
+            </h3>
           </Col>
         </Row>
       </Container>

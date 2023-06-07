@@ -1,41 +1,43 @@
 .text {
-  color: rgb(250, 250, 250);
+  color: rgba(250, 250, 250, 0.95);
   background-color: #ff4c3c32;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 36px;
   text-align: center;
   margin-top: 12px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  font-weight: 100;
 }
 
 .text1 {
-  color: rgb(250, 250, 250);
+  color: rgba(250, 250, 250, 0.95);
   background-color: #ff4c3c32;
-  font-weight: 500;
-  border-radius: 8px;
-  padding: 36px;
-  text-align: left;
-  margin-bottom: 12px;
-  height: 175px;
+  border-radius: 4px;
+  padding: 24px;
+  text-align: center;
+  margin-top: 12px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  font-weight: 100;
+  height: 180px;
 }
 
 .text3 {
-  color: rgb(250, 250, 250);
+  color: rgba(250, 250, 250, 0.9);
   background-color: #ff4c3c32;
-  font-weight: 200;
-  border-radius: 8px;
   padding: 36px;
   text-align: center;
   margin-top: 12px;
-  margin-bottom: 22px;
-  font-style: italic;
+  margin-bottom: 18px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  font-weight: 900;
 }
 
 .book {
   background-color: #ff4c3c32;
   padding: 5px;
   text-align: center;
-  color: rgb(250, 250, 250);
-  border-radius: 8px;
+  color: rgba(250, 250, 250, 0.85);
   margin-top: 12px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }

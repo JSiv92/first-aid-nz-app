@@ -19,11 +19,11 @@ import { useEffect } from "react";
 import React from "react";
 
 //import other components to nest inside this component
-import ProductDetails from "../components/ProductDetail";
+import ProductDetails from "../Shop/ProductDetail";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 //context hook
-import { useProductsContext } from "../hooks/useProductsContext";
+import { useProductsContext } from "../../hooks/useProductsContext";
 
 import "./Shop.css";
 
@@ -50,8 +50,8 @@ const Shop = () => {
   return (
     <div className="Shop">
       <div className="h-100">
-        <Row className="g-4" sm={1} md={2}>
-          <Col className="">
+        <Row className="g-4">
+          <Col className="" sm={12} md={6}>
             <div className="shopInfo">
               <h4>
                 <i class="fa-solid fa-briefcase-medical"></i> Products and
@@ -75,7 +75,7 @@ const Shop = () => {
               <p>
                 For all product and service related enquiries:
                 <br />
-                <strong>Email Us - info@firstaidnz.co.nz</strong>
+                <strong>Email us - info@firstaidnz.co.nz</strong>
               </p>
             </div>
           </Col>
@@ -109,7 +109,7 @@ const Shop = () => {
       </div>
 
       <div className="products h-100">
-        <Row className="g-4" sm={1} md={3}>
+        <Row className="g-4" sm={12}>
           {products &&
             products.map((product) => (
               <Col>
