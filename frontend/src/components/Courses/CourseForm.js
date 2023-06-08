@@ -115,6 +115,7 @@ const CourseForm = () => {
           >
             <option value="">Select Region...</option>
             <option value="North Akl">NORTH</option>
+            <option value="Central Akl">NORTH</option>
             <option value="South Akl">SOUTH</option>
             <option value="East Akl">EAST</option>
             <option value="West Akl">WEST</option>

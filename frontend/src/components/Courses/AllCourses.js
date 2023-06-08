@@ -36,33 +36,39 @@ const AllCourses = () => {
   const locations = [
     {
       location: "West Auckland",
-      venue: "Te Atatu Peninsula Community Center",
+      venue: "Te Atatu Peninsula Community Centre",
       address: "595 Te Atatu Road, Te Atatu Peninsula",
-      parking: "",
+      parking: "Parking Available",
     },
     {
       location: "North Auckland",
-      venue: "Te Atatu Peninsula Community Center",
-      address: "595 Te Atatu Road, Te Atatu Peninsula",
-      parking: "",
+      venue: "Milford Cruising Club",
+      address: "24 Craig Road, Milford",
+      parking: "Street Parking Available",
     },
     {
       location: "East Auckland",
-      venue: "Te Atatu Peninsula Community Center",
-      address: "595 Te Atatu Road, Te Atatu Peninsula",
-      parking: "",
+      venue: "Pakuranga Tennis Club",
+      address: "101 Pigeon Mountain Road, Pakuranga",
+      parking: "Gill Road - No parking at Tennis club on Wednesdays",
     },
     {
       location: "South Auckland",
-      venue: "Te Atatu Peninsula Community Center",
-      address: "595 Te Atatu Road, Te Atatu Peninsula",
-      parking: "",
+      venue: "Electrical Industry Training Building",
+      address: "501F Mt Wellington Highway, Mt Wellington",
+      parking: "Parking Available",
+    },
+    {
+      location: "Central Auckland",
+      venue: "Epsom Community Centre",
+      address: "202 Gillies Ave, Epsom",
+      parking: "Parking Available",
     },
     {
       location: "Tauranga",
-      venue: "Te Atatu Peninsula Community Center",
-      address: "595 Te Atatu Road, Te Atatu Peninsula",
-      parking: "",
+      venue: "Tauranga Volunteer Coastguard (Gresham Room)",
+      address: "72 Keith Allen Drive, Sulphur Point",
+      parking: "Parking Available",
     },
   ];
 
