@@ -88,18 +88,25 @@ const PostForm = () => {
         />
       </Form.Group>
 
-      <Container>
-        <Row>
-          <Col className="d-flex align-items-center" sm={4}>
+      <Container className="h-90">
+        <Row className="">
+          <Col className="d-flex align-items-left" sm={4}>
             <Button variant="fanzGreen" type="submit">
               Post Story
             </Button>
           </Col>
-          <Col className="d-flex align-items-center" sm={8}>
+          <Col className="d-flex align-items-left" sm={8}>
             {error && (
-              <div className="error">Please fill in all the fields</div>
+              <div className="error">
+                <i class="fa-solid fa-circle-xmark"></i> Please fill in all the
+                fields
+              </div>
             )}
-            {showPopup && <div className="popup">Post submitted</div>}
+            {showPopup && (
+              <div className="success-msg">
+                <i class="fa-solid fa-check"></i> Post submitted
+              </div>
+            )}
           </Col>
         </Row>
       </Container>

@@ -49,7 +49,7 @@ const Shop = () => {
 
   return (
     <div className="Shop">
-      <div className="h-100">
+      <div className="">
         <Row className="g-4">
           <Col className="" sm={12} md={6}>
             <div className="shopInfo">
@@ -89,19 +89,17 @@ const Shop = () => {
               <p>Not all AED Defibrillators are made the same.</p>
 
               <p>
-                Our <strong>Lifepac</strong> AED Defibrillators carry an 8 year
+                Our <strong>Lifepac AED Defibrillators</strong> carry an 8 year
                 warranty with Servicing and Calibration service available in NZ.
               </p>
               <p>
                 Lifepac Defibrillators can achieve shocks of up to 360 joules.
-                Latest study results from 2017 show shocks at a lower Joule
-                rating may not be enough (Open Access Emergency Medicine March
-                2017). This backs earlier studies from 2009.
+                Study results from 2017 show shocks at a lower Joule rating may
+                not be enough (Open Access Emergency Medicine March 2017).
               </p>
               <p>
                 Lifepac Defibrillators are used by Ambulance services, Fire
-                Service and Hospitals throughout NZ (the same pads stay in place
-                right through from the First Aider to Hospital).
+                Service and Hospitals throughout NZ.
               </p>
             </div>
           </Col>

@@ -29,6 +29,40 @@ const AllCourses = () => {
   const [sortOrder, setSortOrder] = useState(1); //track the sorting order for column
   const [searchQuery, setSearchQuery] = useState(""); //filter by input
 
+  //course locations array
+  const locations = [
+    {
+      location: "West Auckland",
+      venue: "Te Atatu Peninsula Community Center",
+      address: "595 Te Atatu Road, Te Atatu Peninsula",
+      parking: "",
+    },
+    {
+      location: "North Auckland",
+      venue: "Te Atatu Peninsula Community Center",
+      address: "595 Te Atatu Road, Te Atatu Peninsula",
+      parking: "",
+    },
+    {
+      location: "East Auckland",
+      venue: "Te Atatu Peninsula Community Center",
+      address: "595 Te Atatu Road, Te Atatu Peninsula",
+      parking: "",
+    },
+    {
+      location: "South Auckland",
+      venue: "Te Atatu Peninsula Community Center",
+      address: "595 Te Atatu Road, Te Atatu Peninsula",
+      parking: "",
+    },
+    {
+      location: "Tauranga",
+      venue: "Te Atatu Peninsula Community Center",
+      address: "595 Te Atatu Road, Te Atatu Peninsula",
+      parking: "",
+    },
+  ];
+
   const handleSort = (column) => {
     if (sortColumn === column) {
       setSortOrder(sortOrder === 1 ? -1 : 1); // click column for asc desc
@@ -78,6 +112,26 @@ const AllCourses = () => {
     fetchCourses();
   }, []);
 
+  //delete course
+  const handleDeleteCourse = async (courseId) => {
+    try {
+      const response = await fetch(`/api/courses/${courseId}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        // Remove the deleted course from the courses state
+        setCourses((prevCourses) =>
+          prevCourses.filter((course) => course._id !== courseId)
+        );
+      } else {
+        console.error("Failed to delete the course.");
+      }
+    } catch (error) {
+      console.error("An error occurred while deleting the course:", error);
+    }
+  };
+
   //map courses to table
   return (
     <>
@@ -115,7 +169,7 @@ const AllCourses = () => {
           />
         </div>
         <div className="courses">
-          <Table size="md" responsive striped bordered hover className="table">
+          <Table size="sm" responsive striped bordered hover className="table">
             <thead>
               <tr className="text-white bg-fanzGreen">
                 <th>
@@ -145,14 +199,27 @@ const AllCourses = () => {
                   </div>
                 </th>
                 <th className="text-center">Date</th>
-                <th className="text-center">Price</th>
-                <th className="text-center">Book Now</th>
+                <th className="text-center" width={"50px"}>
+                  Price
+                </th>
+                <th className="text-center" width={"70px"}>
+                  Book Now
+                </th>
               </tr>
             </thead>
             <tbody>
               {filteredResult.map((course) => (
                 <tr key={course._id}>
-                  <td>{course.courseName}</td>
+                  <td>
+                    <Button
+                      size="sm"
+                      variant="fanzRed"
+                      onClick={() => handleDeleteCourse(course._id)}
+                    >
+                      <i class="fa-solid fa-xmark"></i>
+                    </Button>{" "}
+                    {course.courseName}
+                  </td>
                   <td>{course.location}</td>
                   <td>{course.date}</td>
                   <td>${course.price}</td>

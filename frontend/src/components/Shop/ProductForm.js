@@ -96,7 +96,12 @@ const ProductForm = () => {
       <Button variant="fanzGreen" type="submit">
         Add
       </Button>
-      {error && <div className="error">{error}</div>}
+      {error && (
+        <div className="error">
+          <i class="fa-solid fa-circle-xmark"></i> Add Product Failed
+          <br /> {error}
+        </div>
+      )}
     </Form>
   );
 };

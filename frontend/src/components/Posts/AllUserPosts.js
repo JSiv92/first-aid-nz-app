@@ -34,7 +34,7 @@ const AllUserPosts = () => {
     return date.toLocaleDateString(undefined, options);
   };
 
-  //delete post
+  //delete post confirmation inside modal box
   const handleDelete = async (postId) => {
     try {
       const response = await fetch(`/api/posts/${postId}`, {
@@ -55,6 +55,7 @@ const AllUserPosts = () => {
     }
   };
 
+  //delete button opens confirmation modal
   const handleOpenModal = (postId) => {
     setSelectedPostId(postId);
     setModal(true);
