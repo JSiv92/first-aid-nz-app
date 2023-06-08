@@ -22,12 +22,15 @@ import "./AllCourses.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Table from "react-bootstrap/Table";
+import Pagination from "react-bootstrap/Pagination";
 
 const AllCourses = () => {
   const [courses, setCourses] = useState(null);
   const [sortColumn, setSortColumn] = useState(""); //to track the column to sort
   const [sortOrder, setSortOrder] = useState(1); //track the sorting order for column
   const [searchQuery, setSearchQuery] = useState(""); //filter by input
+  const [currentPage, setCurrentPage] = useState(1); //pagination
+  const coursesPerPage = 10; // Number of courses to display per page
 
   //course locations array
   const locations = [
@@ -63,6 +66,7 @@ const AllCourses = () => {
     },
   ];
 
+  //sortable columns
   const handleSort = (column) => {
     if (sortColumn === column) {
       setSortOrder(sortOrder === 1 ? -1 : 1); // click column for asc desc
@@ -72,12 +76,8 @@ const AllCourses = () => {
     }
   };
 
-  const handleSearch = (e) => {
-    setSearchQuery(e.target.value);
-  };
-
   //onclick function to actually sort the columns
-  //return a new sorted array
+  //returns a new sorted array to the table
   const sortedCourses = courses
     ? [...courses].sort((a, b) => {
         if (a[sortColumn] < b[sortColumn]) {
@@ -90,6 +90,11 @@ const AllCourses = () => {
       })
     : [];
 
+  //filter/search bar
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
   //array to hold filtered courses
   const filteredResult = sortedCourses.filter(
     (course) =>
@@ -97,6 +102,18 @@ const AllCourses = () => {
       course.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
       course.date.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  //pagination
+  const indexOfLastCourse = currentPage * coursesPerPage;
+  const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
+  const currentCourses = filteredResult.slice(
+    indexOfFirstCourse,
+    indexOfLastCourse
+  );
+
+  const handlePageSelect = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   //useeffect hook to fetch courses from mongo
   useEffect(() => {
@@ -172,8 +189,8 @@ const AllCourses = () => {
           <Table size="sm" responsive striped bordered hover className="table">
             <thead>
               <tr className="text-white bg-fanzGreen">
-                <th>
-                  <div className="d-grid gap-2">
+                <th className="text-left">
+                  <div className="gap-2">
                     <Button
                       variant="outline-fanzWhite"
                       size="sm"
@@ -185,8 +202,8 @@ const AllCourses = () => {
                     </Button>
                   </div>
                 </th>
-                <th>
-                  <div className="d-grid gap-2">
+                <th className="text-left">
+                  <div className="gap-2">
                     <Button
                       variant="outline-fanzWhite"
                       size="sm"
@@ -198,7 +215,7 @@ const AllCourses = () => {
                     </Button>
                   </div>
                 </th>
-                <th className="text-center">Date</th>
+                <th className="text-left">Date</th>
                 <th className="text-center" width={"50px"}>
                   Price
                 </th>
@@ -208,10 +225,11 @@ const AllCourses = () => {
               </tr>
             </thead>
             <tbody>
-              {filteredResult.map((course) => (
+              {currentCourses.map((course) => (
                 <tr key={course._id}>
                   <td>
                     <Button
+                      className="deleteBtn"
                       size="sm"
                       variant="fanzRed"
                       onClick={() => handleDeleteCourse(course._id)}
@@ -234,6 +252,19 @@ const AllCourses = () => {
               ))}
             </tbody>
           </Table>
+          <Pagination className="mt-1 pagination pagination-sm justify-content-center">
+            {Array.from({
+              length: Math.ceil(filteredResult.length / coursesPerPage),
+            }).map((page, index) => (
+              <Pagination.Item
+                key={index}
+                active={index + 1 === currentPage}
+                onClick={() => handlePageSelect(index + 1)}
+              >
+                {index + 1}
+              </Pagination.Item>
+            ))}
+          </Pagination>
         </div>
       </div>
       <div className="courseInfo">

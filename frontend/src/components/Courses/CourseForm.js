@@ -62,6 +62,8 @@ const CourseForm = () => {
           value={courseName}
           onChange={(e) => setName(e.target.value)}
         >
+          {" "}
+          <option value="">Select Course...</option>
           <option value="First Aid Refresher">First Aid Refresher</option>
           <option value="Workplace First Aid Level 1">
             Workplace First Aid Level 1
@@ -111,6 +113,7 @@ const CourseForm = () => {
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           >
+            <option value="">Select Region...</option>
             <option value="North Akl">NORTH</option>
             <option value="South Akl">SOUTH</option>
             <option value="East Akl">EAST</option>

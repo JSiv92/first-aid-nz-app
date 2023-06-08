@@ -32,3 +32,22 @@ th {
 h4 {
   color: #d51300;
 }
+
+.pagination .page-link {
+  color: #ffffff;
+  background-color: #d51300;
+  border-color: #d51300;
+}
+
+.pagination .page-link:hover {
+  color: #ffffff;
+  background-color: #ff6456;
+  border-color: #ff4d3c;
+}
+
+.pagination .page-item.active .page-link {
+  color: #ffffff;
+  background-color: #ff4d3c;
+  border-color: #ff4d3c;
+  font-size: 1em;
+}
