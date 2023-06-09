@@ -83,7 +83,7 @@ const Shop = () => {
           <Col className="">
             <div className="defibInfo">
               <h4>
-                <i class="fa-solid fa-bolt"></i> Defibrillators
+                <i class="fa-solid fa-heart-circle-bolt"></i> Defibrillators
               </h4>
               <hr />
               <p>Not all AED Defibrillators are made the same.</p>

@@ -21,26 +21,31 @@ const MedicPage = () => {
             <strong> Medics & First Aid Stations</strong>
           </h4>
           <hr />
-          <p>
-            Our ambulances and self-contained medical caravan allow us to
-            provide First Aid cover for small groups to large crowds. We are
-            equipped to cater for single day events or overnight functions.
-          </p>
-          <p>
-            Our highly skilled Event Medics personnel have extensive industry
-            based experience. First Aid NZ personnel have been involved in
-            events at galas, music festivals, derbies, sporting fixtures and car
-            rallies.
-          </p>
-          <p>
-            For more information, or to make a booking, please email{" "}
-            <strong>shelley@firstaidnz.co.nz</strong>
-          </p>
-        </div>
-        <div className="imagesDiv">
-          <Image src={pic1} thumbnail responsive />
-          <Image src={pic2} thumbnail responsive />
-          <Image src={pic3} thumbnail responsive />
+
+          <div className="p-3 m-3">
+            <p>
+              <i class="fa-solid fa-shield-heart"></i> Our ambulances and
+              self-contained medical caravan allow us to provide First Aid cover
+              for small groups to large crowds. We are equipped to cater for
+              single day events or overnight functions.
+            </p>
+            <p>
+              <i class="fa-solid fa-shield-heart"></i> Our highly skilled Event
+              Medics personnel have extensive industry based experience. First
+              Aid NZ personnel have been involved in events at galas, music
+              festivals, derbies, sporting fixtures and car rallies.
+            </p>
+            <p>
+              <i class="fa-solid fa-shield-heart"></i> For more information, or
+              to make a booking, please email{" "}
+              <strong>shelley@firstaidnz.co.nz</strong>
+            </p>
+          </div>
+          <div className="imagesDiv">
+            <Image src={pic1} rounded responsive fluid />
+            <Image src={pic2} rounded responsive fluid />
+            <Image src={pic3} rounded responsive fluid />
+          </div>
         </div>
       </div>
     </div>

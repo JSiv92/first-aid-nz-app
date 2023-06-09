@@ -10,8 +10,7 @@ const CourseForm = () => {
   const [price, setPrice] = useState(0.0);
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
-
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null); //error message
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -115,7 +114,7 @@ const CourseForm = () => {
           >
             <option value="">Select Region...</option>
             <option value="North Akl">NORTH</option>
-            <option value="Central Akl">NORTH</option>
+            <option value="Central Akl">CENTRAL</option>
             <option value="South Akl">SOUTH</option>
             <option value="East Akl">EAST</option>
             <option value="West Akl">WEST</option>

@@ -23,6 +23,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Table from "react-bootstrap/Table";
 import Pagination from "react-bootstrap/Pagination";
+import CourseList from "./CourseList";
 
 const AllCourses = () => {
   const [courses, setCourses] = useState(null);
@@ -161,25 +162,36 @@ const AllCourses = () => {
       <div className="courseInfo">
         <h4>
           <i class="fa-solid fa-circle-info"></i>
-          <strong> Pre-Course Information</strong>
+          <strong> Course Information</strong>
         </h4>
         <hr />
         <p>
-          Lorem Ipsum has been the industry's standard dummy text ever since the
-          1500s, when an unknown printer took a galley of type and scrambled it
-          to make a type specimen book. It has survived not only five centuries,
-          but also the leap into electronic typesetting, remaining essentially
-          unchanged.
-          <br /> It was popularised in the 1960s with the release of Letraset
-          sheets containing Lorem Ipsum passages, and more recently with desktop
-          publishing software like Aldus PageMaker including versions of Lorem
-          Ipsum
+          First Aid (NZ) Ltd prides itself in the development and delivery of
+          high quality First Aid education uniquely tailored to the varied needs
+          of our clients. Our basic courses allow for open entry, as well as
+          advanced courses for the more skilled responder.
+        </p>
+        <p>
+          Our aim is to plan, develop and deliver quality pre-hospital response
+          programmes unique to the specific needs of each group of learners. So,
+          if you would like to organise your own on-site course a First Aid NZ
+          Facilitator will come to you. This is a service we offer nation wide
+        </p>
+        <p>
+          Our lower overheads mean that we strive to be competitive in the
+          market place and enjoy passing the saving on to you. We offer public
+          courses at five locations in Auckland.
+        </p>
+        <p>
+          For all bookings and course-related enquiries, contact{" "}
+          <strong>helen@firstaidnz.co.nz</strong> or enrol below{" "}
+          <i class="fa-solid fa-arrow-turn-down"></i>
         </p>
       </div>
       <div className="AllCourses">
         <h4>
           <i class="fa-solid fa-graduation-cap"></i>
-          <strong> Our Courses</strong>
+          <strong> Book a Course</strong>
         </h4>
         <hr />
         <div className="filterTable mb-2">
@@ -273,6 +285,7 @@ const AllCourses = () => {
           </Pagination>
         </div>
       </div>
+      <CourseList />
       <div className="courseInfo">
         <h4>
           <i class="fa-solid fa-location-dot"></i>
