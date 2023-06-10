@@ -75,7 +75,12 @@ const Shop = () => {
               <p>
                 For all product and service related enquiries:
                 <br />
-                <strong>Email us - info@firstaidnz.co.nz</strong>
+                <strong>
+                  Email us -{" "}
+                  <a href="mailto:info@firstaidnz.co.nz">
+                    info@firstaidnz.co.nz
+                  </a>
+                </strong>
               </p>
             </div>
           </Col>

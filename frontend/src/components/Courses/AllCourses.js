@@ -111,12 +111,6 @@ const AllCourses = () => {
   );
 
   //pagination
-  const indexOfLastCourse = currentPage * coursesPerPage;
-  const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
-  const currentCourses = filteredResult.slice(
-    indexOfFirstCourse,
-    indexOfLastCourse
-  );
 
   const handlePageSelect = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -184,8 +178,10 @@ const AllCourses = () => {
         </p>
         <p>
           For all bookings and course-related enquiries, contact{" "}
-          <strong>helen@firstaidnz.co.nz</strong> or enrol below{" "}
-          <i class="fa-solid fa-arrow-turn-down"></i>
+          <strong>
+            <a href="mailto:helen@firstaidnz.co.nz">helen@firstaidnz.co.nz</a>
+          </strong>{" "}
+          or enrol below <i class="fa-solid fa-arrow-turn-down"></i>
         </p>
       </div>
       <div className="AllCourses">
@@ -243,7 +239,7 @@ const AllCourses = () => {
               </tr>
             </thead>
             <tbody>
-              {currentCourses.map((course) => (
+              {filteredResult.map((course) => (
                 <tr key={course._id}>
                   <td>
                     <Button
@@ -270,19 +266,6 @@ const AllCourses = () => {
               ))}
             </tbody>
           </Table>
-          <Pagination className="mt-1 pagination pagination-sm justify-content-center">
-            {Array.from({
-              length: Math.ceil(filteredResult.length / coursesPerPage),
-            }).map((page, index) => (
-              <Pagination.Item
-                key={index}
-                active={index + 1 === currentPage}
-                onClick={() => handlePageSelect(index + 1)}
-              >
-                {index + 1}
-              </Pagination.Item>
-            ))}
-          </Pagination>
         </div>
       </div>
       <CourseList />

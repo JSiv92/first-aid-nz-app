@@ -12,8 +12,11 @@ const CourseList = () => {
       </h4>
       <hr />
       <p>
-        Please contact <strong>helen@firstaidnz.co.nz</strong> for all course
-        inquiries
+        Please contact{" "}
+        <strong>
+          <a href="mailto:helen@firstaidnz.co.nz">helen@firstaidnz.co.nz</a>
+        </strong>{" "}
+        for all course inquiries
       </p>
       <p className="text-center p-3">
         <i class="fa-solid fa-triangle-exclamation"></i> If you need to be

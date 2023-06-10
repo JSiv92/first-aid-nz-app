@@ -38,7 +38,11 @@ const MedicPage = () => {
             <p>
               <i class="fa-solid fa-shield-heart"></i> For more information, or
               to make a booking, please email{" "}
-              <strong>shelley@firstaidnz.co.nz</strong>
+              <strong>
+                <a href="mailto:shelley@firstaidnz.co.nz">
+                  shelley@firstaidnz.co.nz
+                </a>
+              </strong>
             </p>
           </div>
           <div className="imagesDiv">
