@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 //stylesheet
 import "./HomePage.css";
@@ -19,9 +20,12 @@ const Home = () => {
       <Carousel />
       <div className="book fw-light">
         Enrol in a First Aid Course Today →{" "}
-        <Button className="btn btn-sm" variant="fanzGreen">
-          Book Now
-        </Button>{" "}
+        <Link to="/courses">
+          {" "}
+          <Button className="btn btn-sm" variant="fanzGreen">
+            Book Now
+          </Button>{" "}
+        </Link>
         ←
       </div>
       <h3 className="text3">
@@ -33,42 +37,50 @@ const Home = () => {
       <Container className="container">
         <Row className="gx-5">
           <Col className="col1" md={12} lg={4}>
-            <Image
-              src="https://www.aedcpr.com/images/online-cpr-aed-first-aid-class.webp"
-              rounded
-              fluid
-              responsive
-              className="mx-auto d-block"
-            ></Image>
-            <h3 className="text">
-              We plan, develop and deliver quality emergency response
-              programmes.
-            </h3>
+            <Link to="/courses" className="link">
+              <Image
+                src="https://www.aedcpr.com/images/online-cpr-aed-first-aid-class.webp"
+                rounded
+                fluid
+                responsive
+                className="mx-auto d-block"
+              ></Image>
+              <h3 className="text">
+                We plan, develop and deliver quality emergency response
+                programmes.
+              </h3>
+            </Link>
           </Col>
+
           <Col className="col2" md={12} lg={4}>
-            <Image
-              src="https://www.aedcpr.com/images/online-cpr-aed-first-aid-class.webp"
-              rounded
-              fluid
-              responsive
-              className="mx-auto d-block"
-            ></Image>
-            <h3 className="text">
-              Our highly skilled Event Medics have nationwide industry
-              experience.
-            </h3>
+            <Link to="/medics" className="link">
+              <Image
+                src="https://www.aedcpr.com/images/online-cpr-aed-first-aid-class.webp"
+                rounded
+                fluid
+                responsive
+                className="mx-auto d-block"
+              ></Image>
+              <h3 className="text">
+                Our highly skilled Event Medics have nationwide industry
+                experience.
+              </h3>
+            </Link>
           </Col>
+
           <Col className="col3" md={12} lg={4}>
-            <Image
-              src="https://www.aedcpr.com/images/online-cpr-aed-first-aid-class.webp"
-              rounded
-              fluid
-              responsive
-              className="mx-auto d-block"
-            ></Image>
-            <h3 className="text">
-              We offer a wide range of medical products at competitive prices.
-            </h3>
+            <Link to="/products" className="link">
+              <Image
+                src="https://www.aedcpr.com/images/online-cpr-aed-first-aid-class.webp"
+                rounded
+                fluid
+                responsive
+                className="mx-auto d-block"
+              ></Image>
+              <h3 className="text">
+                We offer a wide range of medical products at competitive prices.
+              </h3>
+            </Link>
           </Col>
         </Row>
       </Container>
@@ -80,17 +92,19 @@ const Home = () => {
       <Container className="container">
         <Row className="">
           <Col md={12} lg={6}>
-            <Image
-              src="https://www.aedcpr.com/images/online-cpr-aed-first-aid-class.webp"
-              rounded
-              fluid
-              responsive
-              className="mx-auto d-block"
-            ></Image>
-            <h3 className="text1">
-              Our personnel provide medical, hearing and health checks. We also
-              offer a range of drug screening options.
-            </h3>
+            <Link to="/screening" className="link">
+              <Image
+                src="https://www.aedcpr.com/images/online-cpr-aed-first-aid-class.webp"
+                rounded
+                fluid
+                responsive
+                className="mx-auto d-block"
+              ></Image>
+              <h3 className="text1">
+                Our personnel provide medical, hearing and health checks. We
+                also offer a range of drug screening options.
+              </h3>
+            </Link>
           </Col>
           <Col md={12} lg={6}>
             <Image

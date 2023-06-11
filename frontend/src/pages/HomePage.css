@@ -41,3 +41,14 @@
   margin-top: 12px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
+.link {
+  text-decoration: none;
+  color: #6baf54;
+  font-style: normal;
+  transition: color 0.3s, font-style 0.5s;
+}
+
+.link:hover {
+  color: #6baf54;
+  font-style: italic;
+}
