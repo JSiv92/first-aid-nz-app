@@ -49,6 +49,45 @@ const cartReducer = (state, action) => {
           totalPrice: totalPrice,
         };
       }
+    case "DECREASE_QUANTITY":
+      const { id } = action.payload;
+      const updatedCart = state.cart
+        .map((item) => {
+          if (item.id === id) {
+            // Decrease quantity by 1, or remove the item if quantity becomes 0
+            const updatedQty = item.qty - 1;
+            return updatedQty > 0 ? { ...item, qty: updatedQty } : null;
+          }
+          return item;
+        })
+        .filter(Boolean); // Filter out null values from the cart
+
+      const totalPrice = calculateTotalPrice(updatedCart);
+
+      return {
+        ...state,
+        cart: updatedCart,
+        totalPrice: totalPrice,
+      };
+    case "INCREMENT_QUANTITY":
+      const { id: incrementId } = action.payload;
+      const updatedCartIncrement = state.cart.map((item) => {
+        if (item.id === incrementId) {
+          // Increment quantity by 1
+          return { ...item, qty: item.qty + 1 };
+        }
+        return item;
+      });
+
+      const updatedTotalPriceIncrement =
+        calculateTotalPrice(updatedCartIncrement);
+
+      return {
+        ...state,
+        cart: updatedCartIncrement,
+        totalPrice: updatedTotalPriceIncrement,
+      };
+
     default:
       return state;
   }

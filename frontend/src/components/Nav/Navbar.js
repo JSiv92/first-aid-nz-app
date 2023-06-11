@@ -20,6 +20,8 @@ function NavbarComponent() {
   const { state } = useContext(Context);
   const { cart, totalPrice } = state;
 
+  const { dispatch } = useContext(Context); //delete from cart dispatch
+
   const cartItems = Object.values(cart);
   const cartItemCount = cartItems.reduce((total, item) => {
     return total + item.qty;
@@ -137,7 +139,7 @@ function NavbarComponent() {
                 variant="outline-fanzRed"
                 onClick={handleShow}
               >
-                <i class="fa-solid fa-cart-shopping"></i> {cartItemCount}
+                <i className="fa-solid fa-cart-shopping"></i> {cartItemCount}
               </Button>
             </Nav>
           </Navbar.Collapse>
@@ -158,6 +160,7 @@ function NavbarComponent() {
                   <th>Item</th>
                   <th>Quantity</th>
                   <th>Individual Price</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -166,6 +169,28 @@ function NavbarComponent() {
                     <td>{item.name}</td>
                     <td>{item.qty}</td>
                     <td>${item.price.toFixed(2)}</td>
+                    <td>
+                      <div className="">
+                        <i
+                          className="text-fanzRed fa-solid fa-square-minus fa-2xl"
+                          onClick={() =>
+                            dispatch({
+                              type: "DECREASE_QUANTITY",
+                              payload: item,
+                            })
+                          }
+                        ></i>{" "}
+                        <i
+                          className="text-fanzGreen fa-solid fa-square-plus fa-2xl"
+                          onClick={() =>
+                            dispatch({
+                              type: "INCREMENT_QUANTITY",
+                              payload: item,
+                            })
+                          }
+                        ></i>
+                      </div>
+                    </td>
                   </tr>
                 ))}
               </tbody>

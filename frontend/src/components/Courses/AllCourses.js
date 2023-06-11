@@ -15,9 +15,10 @@ JS 24/may/2023
 */
 
 //ALL COURSES COMPONENT//
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import React from "react";
 import "./AllCourses.css";
+import { Context } from "../../context/CartContext";
 //Components
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -32,7 +33,7 @@ const AllCourses = () => {
   const [searchQuery, setSearchQuery] = useState(""); //filter by input
   const [currentPage, setCurrentPage] = useState(1); //pagination
   const coursesPerPage = 10; // Number of courses to display per page
-
+  const { dispatch } = useContext(Context); //add to cart
   //course locations array
   const locations = [
     {
@@ -257,7 +258,13 @@ const AllCourses = () => {
                   <td>${course.price}</td>
                   <td>
                     <div className="d-grid gap-2">
-                      <Button size="sm" variant="outline-fanzGreen">
+                      <Button
+                        size="sm"
+                        variant="outline-fanzGreen"
+                        onClick={() =>
+                          dispatch({ type: "ADD_TO_CART", payload: course })
+                        }
+                      >
                         Enrol
                       </Button>
                     </div>
