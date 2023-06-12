@@ -1,10 +1,11 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
 
 const ContactForm = () => {
   return (
-    <div className="page">
+    <div className="page mb-3">
       <Form className="">
         <Form.Group className="mb-3" controlId="nameGroup">
           <Form.Label>Your Name</Form.Label>
