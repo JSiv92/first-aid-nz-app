@@ -243,14 +243,10 @@ const AllCourses = () => {
               {filteredResult.map((course) => (
                 <tr key={course._id}>
                   <td>
-                    <Button
-                      className="deleteBtn"
-                      size="sm"
-                      variant="fanzRed"
+                    <i
                       onClick={() => handleDeleteCourse(course._id)}
-                    >
-                      <i class="fa-solid fa-xmark"></i>
-                    </Button>{" "}
+                      className="fa-solid fa-xmark fa-lg text-fanzRed"
+                    ></i>{" "}
                     {course.courseName}
                   </td>
                   <td>{course.location}</td>

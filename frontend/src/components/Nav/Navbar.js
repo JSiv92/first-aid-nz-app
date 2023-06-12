@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import logo from "../../assets/fanzLogo.png";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/CartContext";
-import { useContext } from "react";
 
 //bootstrap
 import Container from "react-bootstrap/Container";
@@ -20,7 +19,7 @@ function NavbarComponent() {
   const { state } = useContext(Context);
   const { cart, totalPrice } = state;
 
-  const { dispatch } = useContext(Context); //delete from cart dispatch
+  const { dispatch } = useContext(Context); //incr/decr from cart dispatch
 
   const cartItems = Object.values(cart);
   const cartItemCount = cartItems.reduce((total, item) => {

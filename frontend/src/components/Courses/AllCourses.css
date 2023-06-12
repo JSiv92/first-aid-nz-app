@@ -51,3 +51,9 @@ h4 {
   border-color: #ff4d3c;
   font-size: 1em;
 }
+.text-fanzRed {
+  cursor: pointer;
+}
+.text-fanzGreen {
+  cursor: pointer;
+}
