@@ -22,9 +22,15 @@ const CourseForm = () => {
     }
 
     //new course obj
-    const course = { courseName: customCourseName, price, date, location };
+    const course = {
+      type: "course",
+      name: customCourseName,
+      price,
+      date,
+      location,
+    };
 
-    const response = await fetch("/api/courses", {
+    const response = await fetch("/api/products", {
       method: "POST",
       body: JSON.stringify(course),
       headers: {

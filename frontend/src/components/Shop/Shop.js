@@ -40,7 +40,8 @@ const Shop = () => {
 
       //check response is ok
       if (response.ok) {
-        dispatch({ type: "SET_PRODUCTS", payload: json });
+        const productData = json.filter((item) => item.type === "product");
+        dispatch({ type: "SET_PRODUCTS", payload: productData });
       }
     };
 

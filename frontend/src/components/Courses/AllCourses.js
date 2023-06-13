@@ -106,7 +106,7 @@ const AllCourses = () => {
   //array to hold filtered courses
   const filteredResult = sortedCourses.filter(
     (course) =>
-      course.courseName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      course.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       course.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
       course.date.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -117,24 +117,26 @@ const AllCourses = () => {
     setCurrentPage(pageNumber);
   };
 
-  //useeffect hook to fetch courses from mongo
+  //useeffect hook to fetch courses from mongo products table
   useEffect(() => {
     const fetchCourses = async () => {
-      const response = await fetch("/api/courses");
+      const response = await fetch("/api/products");
       const json = await response.json();
       //check response is ok 200 first
       if (response.ok) {
-        setCourses(json);
+        //only filter products with type courses
+        const courseData = json.filter((item) => item.type === "course");
+        setCourses(courseData);
       }
     };
 
     fetchCourses();
   }, []);
 
-  //delete course
+  //delete selected course from products table
   const handleDeleteCourse = async (courseId) => {
     try {
-      const response = await fetch(`/api/courses/${courseId}`, {
+      const response = await fetch(`/api/products/${courseId}`, {
         method: "DELETE",
       });
 
@@ -209,11 +211,11 @@ const AllCourses = () => {
                     <Button
                       variant="outline-fanzWhite"
                       size="sm"
-                      onClick={() => handleSort("courseName")}
+                      onClick={() => handleSort("name")}
                     >
                       Course
-                      {sortColumn === "courseName" && sortOrder === 1 && " ▲"}
-                      {sortColumn === "courseName" && sortOrder === -1 && " ▼"}
+                      {sortColumn === "name" && sortOrder === 1 && " ▲"}
+                      {sortColumn === "name" && sortOrder === -1 && " ▼"}
                     </Button>
                   </div>
                 </th>
@@ -247,7 +249,7 @@ const AllCourses = () => {
                       onClick={() => handleDeleteCourse(course._id)}
                       className="fa-solid fa-xmark fa-lg text-fanzRed"
                     ></i>{" "}
-                    {course.courseName}
+                    {course.name}
                   </td>
                   <td>{course.location}</td>
                   <td>{course.date}</td>

@@ -1,14 +1,12 @@
 /*
-->This code exports several modules to use in routing to handle 
-  HTTP requests and CRUD operations for shop products. 
-
-JS 06/may/2023
+->This code exports several endpoints to use in routing to handle 
+  HTTP requests and CRUD operations for shop and course products. 
 */
 
 const mongoose = require("mongoose");
 const Product = require("../models/ProductModel");
 
-//GET all products
+//GET all products (both courses and products - filter in react)
 const getProducts = async (req, res) => {
   const products = await Product.find({}).sort({ createdAt: -1 });
 
@@ -38,15 +36,22 @@ const getProduct = async (req, res) => {
 //CREATE new product
 const createProduct = async (req, res) => {
   //get attributes from request body:
-  const { name, price, imageUrl, description } = req.body;
+  const { type, name, price, imageUrl, description, date, location } = req.body;
 
   //add 'doc' to db:
   try {
+    // Check if type is explicitly set to 'product' or 'course'
+    const validTypes = ["product", "course"];
+    const productType = validTypes.includes(type) ? type : "product"; //set to type course otherwise product
+
     const product = await Product.create({
+      type: productType,
       name,
       price,
       imageUrl,
       description,
+      date,
+      location,
     });
     res.status(200).json(product);
   } catch (error) {

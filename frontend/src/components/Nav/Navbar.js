@@ -171,7 +171,7 @@ function NavbarComponent() {
                     <td>
                       <div className="">
                         <i
-                          className="text-fanzRed fa-solid fa-square-minus fa-2xl"
+                          className="text-fanzRed fa-solid fa-square-minus fa-xl"
                           onClick={() =>
                             dispatch({
                               type: "DECREASE_QUANTITY",
@@ -180,7 +180,7 @@ function NavbarComponent() {
                           }
                         ></i>{" "}
                         <i
-                          className="text-fanzGreen fa-solid fa-square-plus fa-2xl"
+                          className="text-fanzGreen fa-solid fa-square-plus fa-xl"
                           onClick={() =>
                             dispatch({
                               type: "INCREMENT_QUANTITY",
@@ -197,7 +197,14 @@ function NavbarComponent() {
           ) : (
             <p className="">Your cart is empty.</p>
           )}
-          {cartItems.length > 0 && <p>Total: ${totalPrice.toFixed(2)} NZD</p>}
+          {cartItems.length > 0 && (
+            <>
+              <strong>
+                Total
+                <p className="text-fanzRed">${totalPrice.toFixed(2)} NZD</p>
+              </strong>
+            </>
+          )}
           <Button variant="fanzGreen">Checkout</Button>
         </Modal.Body>
       </Modal>
