@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./PostForm.css";
 import Container from "react-bootstrap/esm/Container";
+import { motion } from "framer-motion";
 
 const PostForm = () => {
   //state of each form property
@@ -91,9 +91,18 @@ const PostForm = () => {
       <Container className="h-90">
         <Row className="">
           <Col className="d-flex align-items-left" sm={4}>
-            <Button variant="fanzGreen" type="submit">
+            <motion.button
+              type="submit"
+              whileHover={{
+                color: "#fff",
+                boxShadow: "0px 0px 8px #9afd79",
+                x: 1,
+                y: -2,
+              }}
+              className="postStoryBtn text-fanzWhite"
+            >
               Post Story
-            </Button>
+            </motion.button>
           </Col>
           <Col className="d-flex align-items-left" sm={8}>
             {error && (

@@ -1,11 +1,12 @@
 import React from "react";
+import { motion } from "framer-motion";
 import "./PageHeading.css";
 
 const PageHeading = ({ text }) => {
   return (
-    <h1 className="pageTitle display-2">
+    <motion.h1 animate={{ y: 9 }} className="pageTitle display-2">
       <strong>{text}</strong>
-    </h1>
+    </motion.h1>
   );
 };
 

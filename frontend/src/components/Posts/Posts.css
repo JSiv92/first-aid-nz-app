@@ -6,6 +6,16 @@
   border: solid 1px #6baf54;
 }
 
+.postStoryBtn {
+  background-color: #295c33;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  padding: 4px;
+}
+
 .card-title {
   color: #295c33;
   font-style: italic;

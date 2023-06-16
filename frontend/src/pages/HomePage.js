@@ -4,8 +4,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
-import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 //stylesheet
 import "./HomePage.css";
@@ -19,21 +19,26 @@ const Home = () => {
     <>
       <Carousel />
       <div className="book fw-light">
-        Enrol in a First Aid Course Today →{" "}
+        Enrol in a First Aid Course Today{" "}
         <Link to="/courses">
-          {" "}
-          <Button className="btn btn-sm" variant="fanzGreen">
-            Book Now
-          </Button>{" "}
+          <motion.button
+            whileHover={{
+              fontSize: "20px",
+              color: "#fff",
+              boxShadow: "0px 0px 8px #9afd79",
+            }}
+            className="bookNow"
+          >
+            → Book Now ←
+          </motion.button>
         </Link>
-        ←
       </div>
-      <h3 className="text3">
+      <motion.h3 className="text3" animate={{ fontSize: "28px" }}>
         <strong>First Aid NZ</strong> has been specialising in a wide range of
         First Aid services for over 20 years. <br />
         <br />
         We are Auckland based, with a nationwide clientbase.
-      </h3>
+      </motion.h3>
       <Container className="container">
         <Row className="gx-5">
           <Col className="col1" md={12} lg={4}>
@@ -45,10 +50,18 @@ const Home = () => {
                 responsive
                 className="mx-auto d-block"
               ></Image>
-              <h3 className="text">
+              <motion.h3
+                className="text"
+                whileHover={{
+                  fontSize: "25px",
+                  color: "rgb(250, 250, 250)",
+                  textShadow: "0px 0px 4px #9afd79",
+                  originX: 0,
+                }}
+              >
                 We plan, develop and deliver quality emergency response
                 programmes.
-              </h3>
+              </motion.h3>
             </Link>
           </Col>
 
@@ -61,10 +74,18 @@ const Home = () => {
                 responsive
                 className="mx-auto d-block"
               ></Image>
-              <h3 className="text">
-                Our highly skilled Event Medics have nationwide industry
-                experience.
-              </h3>
+              <motion.h3
+                className="text"
+                whileHover={{
+                  fontSize: "25px",
+                  color: "rgb(250, 250, 250)",
+                  textShadow: "0px 0px 4px #9afd79",
+                  originX: 0,
+                }}
+              >
+                Our highly
+                <br /> skilled Event Medics have nationwide industry experience.
+              </motion.h3>
             </Link>
           </Col>
 
@@ -77,18 +98,33 @@ const Home = () => {
                 responsive
                 className="mx-auto d-block"
               ></Image>
-              <h3 className="text">
-                We offer a wide range of medical products at competitive prices.
-              </h3>
+              <motion.h3
+                className="text"
+                whileHover={{
+                  fontSize: "25px",
+                  color: "rgb(250, 250, 250)",
+                  textShadow: "0px 0px 4px #9afd79",
+                  originX: 0,
+                }}
+              >
+                We offer a<br /> wide range of medical products at competitive
+                prices.
+              </motion.h3>
             </Link>
           </Col>
         </Row>
       </Container>
 
-      <h3 className="text3">
+      <motion.h3
+        className="text"
+        whileHover={{
+          color: "rgb(250, 250, 250)",
+          textShadow: "0px 0px 4px #9afd79",
+        }}
+      >
         Become a Lifesaver. <br />
         Make a difference when nobody else is around.
-      </h3>
+      </motion.h3>
       <Container className="container">
         <Row className="">
           <Col md={12} lg={6}>
@@ -98,12 +134,21 @@ const Home = () => {
                 rounded
                 fluid
                 responsive
-                className="mx-auto d-block"
+                className="mx-auto d-block mt-2"
               ></Image>
-              <h3 className="text1">
-                Our personnel provide medical, hearing and health checks. We
-                also offer a range of drug screening options.
-              </h3>
+              <motion.h4
+                className="text"
+                whileHover={{
+                  fontSize: "21px",
+                  color: "rgb(250, 250, 250)",
+                  textShadow: "0px 0px 4px #9afd79",
+                  originX: 0,
+                }}
+              >
+                Our personnel provide medical, hearing, health checks and a
+                <br />
+                range of drug screening options.
+              </motion.h4>
             </Link>
           </Col>
           <Col md={12} lg={6}>
@@ -112,12 +157,20 @@ const Home = () => {
               rounded
               fluid
               responsive
-              className="mx-auto d-block"
+              className="mx-auto d-block mt-2"
             ></Image>
-            <h3 className="text1">
-              First Aid NZ actively supports community initiatives for positive
-              health & wellbeing.
-            </h3>
+            <motion.h4
+              className="text"
+              whileHover={{
+                fontSize: "21px",
+                color: "rgb(250, 250, 250)",
+                textShadow: "0px 0px 4px #9afd79",
+                originX: 0,
+              }}
+            >
+              First Aid NZ actively supports community initiatives for
+              <br /> positive health & wellbeing.
+            </motion.h4>
           </Col>
         </Row>
       </Container>
