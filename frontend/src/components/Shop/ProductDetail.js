@@ -4,14 +4,16 @@
 
 import React from "react";
 import Button from "react-bootstrap/Button";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Context } from "../../context/CartContext";
 import { useProductsContext } from "../../hooks/useProductsContext";
 
 const ProductDetails = ({ product }) => {
   const { dispatch } = useContext(Context); //cart context
   const { dispatch: productDispatch } = useProductsContext(); //products context
+  const [addedToCart, setAddedToCart] = useState(false); // state to control the added to cart popup
 
+  // delete product and refresh state
   const handleDelete = async () => {
     const response = await fetch("api/products/" + product._id, {
       method: "DELETE",
@@ -44,13 +46,28 @@ const ProductDetails = ({ product }) => {
       <br />
       <div className="">
         <Button
-          onClick={() => dispatch({ type: "ADD_TO_CART", payload: product })}
           variant="success"
+          onClick={() => {
+            dispatch({ type: "ADD_TO_CART", payload: product });
+            setAddedToCart(true);
+            //time out on added to cart icon
+            setTimeout(() => {
+              setAddedToCart(false);
+            }, 3000);
+          }}
         >
-          Add to Cart
+          {addedToCart ? (
+            <>
+              <i class="fa-solid fa-check fa-md"></i> Added to Cart
+            </>
+          ) : (
+            <>
+              <i class="fa-solid fa-cart-plus fa-md"></i> Add to Cart
+            </>
+          )}{" "}
         </Button>{" "}
         <Button onClick={handleDelete} variant="danger">
-          <i className="fa-solid fa-xmark fa-lg"></i>
+          <i className="fa-solid fa-xmark fa-md"></i>
         </Button>
       </div>
     </div>

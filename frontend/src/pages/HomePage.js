@@ -24,8 +24,7 @@ const Home = () => {
           <motion.button
             whileHover={{
               fontSize: "20px",
-              color: "#fff",
-              boxShadow: "0px 0px 8px #9afd79",
+              boxShadow: "0px 0px 8px #fafafa",
             }}
             className="bookNow"
           >

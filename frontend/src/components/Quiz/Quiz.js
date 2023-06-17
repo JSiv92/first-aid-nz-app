@@ -2,6 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import { quiz } from "../Quiz/QuizQuestions.js";
+import { motion } from "framer-motion";
 import "./Quiz.css";
 
 const Quiz = () => {
@@ -75,15 +76,19 @@ const Quiz = () => {
           <h2>{question}</h2>
           <ul>
             {choices.map((answer, index) => (
-              <li
+              <motion.li
                 onClick={() => onAnswerSelected(answer, index)}
                 key={answer}
                 className={
                   selectedAnswerIndex === index ? "selected-answer" : null
                 }
+                whileHover={{
+                  scale: 1.1,
+                  backgroundColor: "#6baf54",
+                }}
               >
                 {answer}
-              </li>
+              </motion.li>
             ))}
           </ul>
           <Button
@@ -96,12 +101,13 @@ const Quiz = () => {
         </div>
       ) : (
         <div className="result">
-          <h3>Your Results</h3>
-          <hr />
+          <motion.h3 animate={{ scale: 1.1 }} transition={{ duration: 0.35 }}>
+            Your Results
+          </motion.h3>
           <div className="resultsbox">
-            <p>
+            <motion.p>
               Your Score:<span> {result.score}/6</span>
-            </p>
+            </motion.p>
             <p>
               Correct:<span> {result.correctAnswers}</span>
             </p>

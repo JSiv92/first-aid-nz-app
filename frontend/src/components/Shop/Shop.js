@@ -30,8 +30,6 @@ import "./Shop.css";
 const Shop = () => {
   const { products, dispatch } = useProductsContext();
 
-  // Function to add items to the cart
-
   //fetch products from db useeffect hook using the productscontext if result ok
   useEffect(() => {
     const fetchProducts = async () => {
@@ -106,6 +104,7 @@ const Shop = () => {
               <p>
                 Lifepac Defibrillators are used by Ambulance services, Fire
                 Service and Hospitals throughout NZ.
+                <br />
               </p>
             </div>
           </Col>

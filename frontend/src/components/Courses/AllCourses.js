@@ -34,6 +34,8 @@ const AllCourses = () => {
   const [currentPage, setCurrentPage] = useState(1); //pagination
   const coursesPerPage = 10; // Number of courses to display per page
   const { dispatch } = useContext(Context); //add to cart
+  const [addedToCart, setAddedToCart] = useState(false); // state to control the added to cart popup
+
   //course locations array
   const locations = [
     {
@@ -84,7 +86,6 @@ const AllCourses = () => {
     }
   };
 
-  //onclick function to actually sort the columns
   //returns a new sorted array to the table
   const sortedCourses = courses
     ? [...courses].sort((a, b) => {
@@ -111,12 +112,6 @@ const AllCourses = () => {
       course.date.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  //pagination
-
-  const handlePageSelect = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
   //useeffect hook to fetch courses from mongo products table
   useEffect(() => {
     const fetchCourses = async () => {
@@ -141,7 +136,7 @@ const AllCourses = () => {
       });
 
       if (response.ok) {
-        // Remove the deleted course from the courses state
+        //remove the deleted course from the courses state
         setCourses((prevCourses) =>
           prevCourses.filter((course) => course._id !== courseId)
         );
@@ -259,11 +254,20 @@ const AllCourses = () => {
                       <Button
                         size="sm"
                         variant="outline-fanzGreen"
-                        onClick={() =>
-                          dispatch({ type: "ADD_TO_CART", payload: course })
-                        }
+                        onClick={() => {
+                          dispatch({ type: "ADD_TO_CART", payload: course });
+                          setAddedToCart(true);
+                          //time out on added to cart icon
+                          setTimeout(() => {
+                            setAddedToCart(false);
+                          }, 3000);
+                        }}
                       >
-                        Enrol
+                        {addedToCart ? (
+                          <i class="fa-solid fa-check"></i>
+                        ) : (
+                          <i class="fa-solid fa-cart-plus"></i>
+                        )}
                       </Button>
                     </div>
                   </td>

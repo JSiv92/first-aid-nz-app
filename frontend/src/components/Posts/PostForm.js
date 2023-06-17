@@ -93,11 +93,11 @@ const PostForm = () => {
           <Col className="d-flex align-items-left" sm={4}>
             <motion.button
               type="submit"
+              whileTap={{ scale: 0.9, x: "-5px", y: "5px" }}
               whileHover={{
                 color: "#fff",
                 boxShadow: "0px 0px 8px #9afd79",
-                x: 1,
-                y: -2,
+                scale: 1.1,
               }}
               className="postStoryBtn text-fanzWhite"
             >
