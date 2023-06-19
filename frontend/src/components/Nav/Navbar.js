@@ -167,7 +167,7 @@ function NavbarComponent() {
                   <tr key={`${item.id}-${item.name}`}>
                     <td>{item.name}</td>
                     <td>{item.qty}</td>
-                    <td>${item.price.toFixed(2)}</td>
+                    <td>${item.convertedPrice}</td>
                     <td>
                       <div className="">
                         <i

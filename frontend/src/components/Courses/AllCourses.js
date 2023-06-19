@@ -34,7 +34,7 @@ const AllCourses = () => {
   const [currentPage, setCurrentPage] = useState(1); //pagination
   const coursesPerPage = 10; // Number of courses to display per page
   const { dispatch } = useContext(Context); //add to cart
-  const [addedToCart, setAddedToCart] = useState(false); // state to control the added to cart popup
+  const [addedToCart, setAddedToCart] = useState({}); // state to control the added to cart popup
 
   //course locations array
   const locations = [
@@ -256,17 +256,23 @@ const AllCourses = () => {
                         variant="outline-fanzGreen"
                         onClick={() => {
                           dispatch({ type: "ADD_TO_CART", payload: course });
-                          setAddedToCart(true);
-                          //time out on added to cart icon
+                          setAddedToCart((prevAddedToCart) => ({
+                            ...prevAddedToCart,
+                            [course._id]: true,
+                          }));
+                          // Time out on added to cart icon
                           setTimeout(() => {
-                            setAddedToCart(false);
+                            setAddedToCart((prevAddedToCart) => ({
+                              ...prevAddedToCart,
+                              [course._id]: false,
+                            }));
                           }, 3000);
                         }}
                       >
-                        {addedToCart ? (
-                          <i class="fa-solid fa-check"></i>
+                        {addedToCart[course._id] ? (
+                          <i className="fa-solid fa-check"></i>
                         ) : (
-                          <i class="fa-solid fa-cart-plus"></i>
+                          <i className="fa-solid fa-cart-plus"></i>
                         )}
                       </Button>
                     </div>

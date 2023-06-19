@@ -8,7 +8,7 @@ const initialState = {
 const Context = createContext({});
 
 const calculateTotalPrice = (cart) => {
-  return cart.reduce((total, item) => total + item.qty * item.price, 0);
+  return cart.reduce((total, item) => total + item.qty * item.dollarPrice, 0); // Use 'dollarPrice' instead of 'price'
 };
 
 const cartReducer = (state, action) => {

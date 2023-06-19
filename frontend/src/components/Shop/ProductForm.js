@@ -11,7 +11,7 @@ const ProductForm = () => {
   const { dispatch } = useProductsContext();
   //state of each form property
   const [name, setName] = useState("");
-  const [price, setPrice] = useState(0.0);
+  const [price, setPrice] = useState("");
   const [description, setDesc] = useState("");
   const [imgUrl, setImgUrl] = useState("");
 
@@ -38,7 +38,7 @@ const ProductForm = () => {
     }
     if (response.ok) {
       setName("");
-      setPrice(0.0);
+      setPrice("");
       setDesc("");
       setImgUrl("");
       setError(null);
@@ -53,7 +53,7 @@ const ProductForm = () => {
     <Form className="create" onSubmit={handleSubmit}>
       <h3>Add a New Product:</h3>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3">
         <Form.Label>Name</Form.Label>
         <Form.Control
           type="text"
@@ -63,11 +63,11 @@ const ProductForm = () => {
         />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Price</Form.Label>
+      <Form.Group className="mb-3">
+        <Form.Label>Stripe Price ID</Form.Label>
         <Form.Control
-          type="number"
-          placeholder="Price"
+          type="text"
+          placeholder="Stripe Price ID"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />

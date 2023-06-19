@@ -1,6 +1,7 @@
 /*
 ->This file defines a product schema using the Mongoose library for MongoDB
 ->The schema defines the structure of the data that will be stored in the database for a product
+-> The Price field is designed to take a priceID string generated from stripe portal
 
 JS 06/may/2023
 */
@@ -21,7 +22,7 @@ const productSchema = new Schema(
       required: true,
     },
     price: {
-      type: Number,
+      type: String,
       required: true,
     },
     imageUrl: {
