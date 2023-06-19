@@ -9,7 +9,7 @@ const ProductDetails = ({ product }) => {
   const { dispatch: productDispatch } = useProductsContext(); // products context as productDispatch
   const [addedToCart, setAddedToCart] = useState(false); // state to control the added to cart popup
 
-  // fetch price from stripe api
+  //convert priceID to $price from stripe api
   const [convertedPrice, setConvertedPrice] = useState(null);
 
   useEffect(() => {
@@ -25,6 +25,18 @@ const ProductDetails = ({ product }) => {
 
     fetchConvertedPrice();
   }, [product.price]);
+
+  //handle add to cart
+  const handleAddToCart = () => {
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: {
+        name: product.name,
+        price: product.price,
+        convertedPrice: convertedPrice, // Pass the fetched converted price
+      },
+    });
+  };
 
   // delete product and refresh state
   const handleDelete = async () => {
@@ -58,17 +70,7 @@ const ProductDetails = ({ product }) => {
       ></img>
       <br />
       <div className="">
-        <Button
-          variant="success"
-          onClick={() => {
-            dispatch({ type: "ADD_TO_CART", payload: product });
-            setAddedToCart(true);
-            // timeout on added to cart icon
-            setTimeout(() => {
-              setAddedToCart(false);
-            }, 3000);
-          }}
-        >
+        <Button variant="success" onClick={handleAddToCart}>
           {addedToCart ? (
             <>
               <i className="fa-solid fa-check fa-md"></i> Added to Cart

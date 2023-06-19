@@ -8,13 +8,16 @@ const initialState = {
 const Context = createContext({});
 
 const calculateTotalPrice = (cart) => {
-  return cart.reduce((total, item) => total + item.qty * item.dollarPrice, 0); // Use 'dollarPrice' instead of 'price'
+  return cart.reduce(
+    (total, item) => total + item.qty * item.convertedPrice,
+    0
+  );
 };
 
 const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
-      const { name } = action.payload;
+      const { name, convertedPrice } = action.payload;
       const existingItem = state.cart.find((item) => item.name === name);
 
       if (existingItem) {
@@ -39,6 +42,7 @@ const cartReducer = (state, action) => {
           id: newProductId,
           ...action.payload,
           qty: 1,
+          convertedPrice: convertedPrice, // Include the converted price in the cart item
         };
 
         const totalPrice = calculateTotalPrice([...state.cart, newProduct]);
@@ -69,6 +73,7 @@ const cartReducer = (state, action) => {
         cart: updatedCart,
         totalPrice: totalPrice,
       };
+
     case "INCREMENT_QUANTITY":
       const { id: incrementId } = action.payload;
       const updatedCartIncrement = state.cart.map((item) => {
@@ -79,13 +84,12 @@ const cartReducer = (state, action) => {
         return item;
       });
 
-      const updatedTotalPriceIncrement =
-        calculateTotalPrice(updatedCartIncrement);
+      const totalPriceIncrement = calculateTotalPrice(updatedCartIncrement);
 
       return {
         ...state,
         cart: updatedCartIncrement,
-        totalPrice: updatedTotalPriceIncrement,
+        totalPrice: totalPriceIncrement,
       };
 
     default:

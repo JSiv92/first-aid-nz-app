@@ -26,6 +26,24 @@ function NavbarComponent() {
     return total + item.qty;
   }, 0);
 
+  const handleDecreaseQuantity = (item) => {
+    dispatch({
+      type: "DECREASE_QUANTITY",
+      payload: {
+        id: item.id,
+      },
+    });
+  };
+
+  const handleIncrementQuantity = (item) => {
+    dispatch({
+      type: "INCREMENT_QUANTITY",
+      payload: {
+        id: item.id,
+      },
+    });
+  };
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -172,21 +190,11 @@ function NavbarComponent() {
                       <div className="">
                         <i
                           className="text-fanzRed fa-solid fa-square-minus fa-xl"
-                          onClick={() =>
-                            dispatch({
-                              type: "DECREASE_QUANTITY",
-                              payload: item,
-                            })
-                          }
+                          onClick={() => handleDecreaseQuantity(item)}
                         ></i>{" "}
                         <i
                           className="text-fanzGreen fa-solid fa-square-plus fa-xl"
-                          onClick={() =>
-                            dispatch({
-                              type: "INCREMENT_QUANTITY",
-                              payload: item,
-                            })
-                          }
+                          onClick={() => handleIncrementQuantity(item)}
                         ></i>
                       </div>
                     </td>
