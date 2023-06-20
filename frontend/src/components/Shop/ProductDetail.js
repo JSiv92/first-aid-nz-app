@@ -8,6 +8,7 @@ const ProductDetails = ({ product }) => {
   const { dispatch } = useContext(Context); // cart context as dispatch
   const { dispatch: productDispatch } = useProductsContext(); // products context as productDispatch
   const [addedToCart, setAddedToCart] = useState(false); // state to control the added to cart popup
+  const [cartItemCount, setCartItemCount] = useState(0); // counter to track the number of items in the cart
 
   //convert priceID to $price from stripe api
   const [convertedPrice, setConvertedPrice] = useState(null);
@@ -33,9 +34,15 @@ const ProductDetails = ({ product }) => {
       payload: {
         name: product.name,
         price: product.price,
-        convertedPrice: convertedPrice, // Pass the fetched converted price
+        convertedPrice: convertedPrice, //pass the fetched converted price
       },
     });
+    setAddedToCart(true);
+    setCartItemCount(cartItemCount + 1); //increment the cart item count
+
+    setTimeout(() => {
+      setAddedToCart(false);
+    }, 5000);
   };
 
   // delete product and refresh state
@@ -73,7 +80,8 @@ const ProductDetails = ({ product }) => {
         <Button variant="success" onClick={handleAddToCart}>
           {addedToCart ? (
             <>
-              <i className="fa-solid fa-check fa-md"></i> Added to Cart
+              <i className="fa-solid fa-check fa-md"></i> {cartItemCount} Added
+              to Cart
             </>
           ) : (
             <>
