@@ -10,6 +10,8 @@ const ProductDetails = ({ product }) => {
   const [addedToCart, setAddedToCart] = useState(false); // state to control the added to cart popup
   const [cartItemCount, setCartItemCount] = useState(0); // counter to track the number of items in the cart
 
+  const image = product.imageUrl;
+
   //handle add to cart
   const handleAddToCart = () => {
     dispatch({
@@ -48,17 +50,14 @@ const ProductDetails = ({ product }) => {
 
   return (
     <div className="product-details h-100">
-      <h4>{product.name}</h4>
+      <h4 className="text-center">{product.name}</h4>
       <p>
         <strong>${product.price}</strong>
       </p>
+
+      <img className="m-3 p-3" alt="placeholder" src={image}></img>
       <p>{product.description}</p>
-      <img
-        alt="placeholder"
-        src="https://nayemdevs.com/wp-content/uploads/2020/03/default-product-image.png"
-      ></img>
-      <br />
-      <div className="">
+      <div className="mt-auto d-flex justify-content-between align-items-center gap-2">
         <Button variant="success" onClick={handleAddToCart}>
           {addedToCart ? (
             <>

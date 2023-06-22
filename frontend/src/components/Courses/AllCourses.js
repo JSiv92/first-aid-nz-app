@@ -177,7 +177,12 @@ const AllCourses = () => {
         <p>
           For all bookings and course-related enquiries, contact{" "}
           <strong>
-            <a href="mailto:helen@firstaidnz.co.nz">helen@firstaidnz.co.nz</a>
+            <a
+              className="text-fanzLightGreen"
+              href="mailto:helen@firstaidnz.co.nz"
+            >
+              helen@firstaidnz.co.nz
+            </a>
           </strong>{" "}
           or enrol below <i class="fa-solid fa-arrow-turn-down"></i>
         </p>

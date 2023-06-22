@@ -14,7 +14,7 @@ const ProductForm = () => {
   const [price, setPrice] = useState("");
   const [priceId, setPriceId] = useState("");
   const [description, setDesc] = useState("");
-  const [imgUrl, setImgUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
   const [error, setError] = useState(null);
 
@@ -22,7 +22,7 @@ const ProductForm = () => {
     e.preventDefault();
 
     //new product obj
-    const product = { name, price, priceId, description, imgUrl };
+    const product = { name, price, priceId, description, imageUrl };
 
     const response = await fetch("/api/products", {
       method: "POST",
@@ -42,7 +42,7 @@ const ProductForm = () => {
       setPrice("");
       setPriceId("");
       setDesc("");
-      setImgUrl("");
+      setImageUrl("");
       setError(null);
 
       console.log("new product added", json);
@@ -100,8 +100,8 @@ const ProductForm = () => {
         <Form.Control
           type="text"
           placeholder="Product Image URL"
-          value={imgUrl}
-          onChange={(e) => setImgUrl(e.target.value)}
+          value={imageUrl}
+          onChange={(e) => setImageUrl(e.target.value)}
         />
       </Form.Group>
 

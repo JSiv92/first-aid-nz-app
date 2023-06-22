@@ -1,0 +1,15 @@
+.payment {
+  background-color: #fafafa;
+  border-radius: 4px;
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.title {
+  color: #6baf54;
+}
+.cancelTitle {
+  color: #ff4d3c;
+}

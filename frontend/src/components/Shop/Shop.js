@@ -76,7 +76,10 @@ const Shop = () => {
                 <br />
                 <strong>
                   Email us -{" "}
-                  <a href="mailto:info@firstaidnz.co.nz">
+                  <a
+                    className="text-fanzLightGreen"
+                    href="mailto:info@firstaidnz.co.nz"
+                  >
                     info@firstaidnz.co.nz
                   </a>
                 </strong>

@@ -52,7 +52,7 @@ const Home = () => {
               <motion.h3
                 className="text"
                 whileHover={{
-                  fontSize: "25px",
+                  fontSize: "27px",
                   color: "rgb(250, 250, 250)",
                   textShadow: "0px 0px 4px #9afd79",
                   originX: 0,
@@ -76,7 +76,7 @@ const Home = () => {
               <motion.h3
                 className="text"
                 whileHover={{
-                  fontSize: "25px",
+                  fontSize: "27px",
                   color: "rgb(250, 250, 250)",
                   textShadow: "0px 0px 4px #9afd79",
                   originX: 0,
@@ -100,14 +100,14 @@ const Home = () => {
               <motion.h3
                 className="text"
                 whileHover={{
-                  fontSize: "25px",
+                  fontSize: "27px",
                   color: "rgb(250, 250, 250)",
                   textShadow: "0px 0px 4px #9afd79",
                   originX: 0,
                 }}
               >
-                We offer a<br /> wide range of medical products at competitive
-                prices.
+                We offer a<br /> wide range of medical products at
+                <br /> competitive prices.
               </motion.h3>
             </Link>
           </Col>
@@ -138,14 +138,13 @@ const Home = () => {
               <motion.h4
                 className="text"
                 whileHover={{
-                  fontSize: "21px",
+                  fontSize: "23px",
                   color: "rgb(250, 250, 250)",
                   textShadow: "0px 0px 4px #9afd79",
                   originX: 0,
                 }}
               >
                 Our personnel provide medical, hearing, health checks and a
-                <br />
                 range of drug screening options.
               </motion.h4>
             </Link>
@@ -161,14 +160,14 @@ const Home = () => {
             <motion.h4
               className="text"
               whileHover={{
-                fontSize: "21px",
+                fontSize: "23px",
                 color: "rgb(250, 250, 250)",
                 textShadow: "0px 0px 4px #9afd79",
                 originX: 0,
               }}
             >
-              First Aid NZ actively supports community initiatives for
-              <br /> positive health & wellbeing.
+              First Aid NZ actively supports community initiatives for positive
+              health & wellbeing.
             </motion.h4>
           </Col>
         </Row>
