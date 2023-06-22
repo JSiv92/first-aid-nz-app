@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { Context } from "../../context/CartContext";
 import { useProductsContext } from "../../hooks/useProductsContext";
 
@@ -10,36 +10,18 @@ const ProductDetails = ({ product }) => {
   const [addedToCart, setAddedToCart] = useState(false); // state to control the added to cart popup
   const [cartItemCount, setCartItemCount] = useState(0); // counter to track the number of items in the cart
 
-  //convert priceID to $price from stripe api
-  const [convertedPrice, setConvertedPrice] = useState(null);
-
-  useEffect(() => {
-    const fetchConvertedPrice = async () => {
-      try {
-        const response = await fetch(`/api/convert-price/${product.price}`);
-        const data = await response.json();
-        setConvertedPrice(data.convertedPrice);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchConvertedPrice();
-  }, [product.price]);
-
   //handle add to cart
   const handleAddToCart = () => {
     dispatch({
       type: "ADD_TO_CART",
       payload: {
-        name: product.name,
-        price: product.price,
-        convertedPrice: convertedPrice, //pass the fetched converted price
+        product: {
+          ...product,
+        },
       },
     });
     setAddedToCart(true);
-    setCartItemCount(cartItemCount + 1); //increment the cart item count
-
+    setCartItemCount(cartItemCount + 1); // increment the cart item count
     setTimeout(() => {
       setAddedToCart(false);
     }, 5000);
@@ -68,7 +50,7 @@ const ProductDetails = ({ product }) => {
     <div className="product-details h-100">
       <h4>{product.name}</h4>
       <p>
-        <strong>${convertedPrice}</strong>
+        <strong>${product.price}</strong>
       </p>
       <p>{product.description}</p>
       <img

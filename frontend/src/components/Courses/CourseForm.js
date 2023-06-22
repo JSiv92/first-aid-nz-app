@@ -8,6 +8,7 @@ const CourseForm = () => {
   const [courseName, setName] = useState("");
   const [otherCourseName, setOtherCourseName] = useState(""); //for custom course name
   const [price, setPrice] = useState(0.0);
+  const [priceId, setPriceId] = useState("");
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
   const [error, setError] = useState(null); //error message
@@ -26,6 +27,7 @@ const CourseForm = () => {
       type: "course",
       name: customCourseName,
       price,
+      priceId,
       date,
       location,
     };
@@ -47,6 +49,7 @@ const CourseForm = () => {
     if (response.ok) {
       setName("");
       setPrice(0.0);
+      setPriceId("");
       setDate("");
       setLocation("");
       setError(null);
@@ -96,6 +99,16 @@ const CourseForm = () => {
           placeholder="Price"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label>Stripe Price ID</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Stripe Price ID"
+          value={priceId}
+          onChange={(e) => setPriceId(e.target.value)}
         />
       </Form.Group>
 

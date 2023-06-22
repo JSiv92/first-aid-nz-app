@@ -255,7 +255,14 @@ const AllCourses = () => {
                         size="sm"
                         variant="outline-fanzGreen"
                         onClick={() => {
-                          dispatch({ type: "ADD_TO_CART", payload: course });
+                          dispatch({
+                            type: "ADD_TO_CART",
+                            payload: {
+                              product: {
+                                ...course,
+                              },
+                            },
+                          });
                           setAddedToCart((prevAddedToCart) => ({
                             ...prevAddedToCart,
                             [course._id]: true,

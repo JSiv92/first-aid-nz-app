@@ -36,7 +36,8 @@ const getProduct = async (req, res) => {
 //CREATE new product
 const createProduct = async (req, res) => {
   //get attributes from request body:
-  const { type, name, price, imageUrl, description, date, location } = req.body;
+  const { type, name, price, imageUrl, description, date, location, priceId } =
+    req.body;
 
   //add 'doc' to db:
   try {
@@ -52,6 +53,7 @@ const createProduct = async (req, res) => {
       description,
       date,
       location,
+      priceId,
     });
     res.status(200).json(product);
   } catch (error) {

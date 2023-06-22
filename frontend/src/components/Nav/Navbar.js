@@ -3,6 +3,9 @@ import logo from "../../assets/fanzLogo.png";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/CartContext";
 
+//stripe
+import { loadStripe } from "@stripe/stripe-js";
+
 //bootstrap
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -18,9 +21,37 @@ import "./Navbar.css";
 function NavbarComponent() {
   const { state } = useContext(Context);
   const { cart, totalPrice } = state;
-
   const { dispatch } = useContext(Context); //incr/decr from cart dispatch
 
+  //stripe
+  const stripeKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY;
+  const stripePath = process.env.REACT_APP_STRIPE_PATH;
+  const stripePromise = loadStripe(stripeKey);
+
+  // handlecheckout
+  const handleCheckout = () => {
+    //console.log({ cart });
+
+    fetch(stripePath, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ cart }),
+    })
+      .then((res) => {
+        if (res.ok) return res.json();
+        return res.json().then((json) => Promise.reject(json));
+      })
+      .then(({ url }) => {
+        window.location = url;
+      })
+      .catch((e) => {
+        console.error(e.error);
+      });
+  };
+
+  //show number of items in cart
   const cartItems = Object.values(cart);
   const cartItemCount = cartItems.reduce((total, item) => {
     return total + item.qty;
@@ -185,7 +216,7 @@ function NavbarComponent() {
                   <tr key={`${item.id}-${item.name}`}>
                     <td>{item.name}</td>
                     <td>{item.qty}</td>
-                    <td>${item.convertedPrice}</td>
+                    <td>${item.price}</td>
                     <td>
                       <div className="">
                         <i
@@ -213,7 +244,9 @@ function NavbarComponent() {
               </strong>
             </>
           )}
-          <Button variant="fanzGreen">Checkout</Button>
+          <Button variant="fanzGreen" onClick={handleCheckout}>
+            Checkout
+          </Button>
         </Modal.Body>
       </Modal>
     </>

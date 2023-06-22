@@ -8,24 +8,22 @@ const initialState = {
 const Context = createContext({});
 
 const calculateTotalPrice = (cart) => {
-  return cart.reduce(
-    (total, item) => total + item.qty * item.convertedPrice,
-    0
-  );
+  return cart.reduce((total, item) => total + item.qty * item.price, 0);
 };
 
 const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
-      const { name, convertedPrice } = action.payload;
-      const existingItem = state.cart.find((item) => item.name === name);
+      const { product } = action.payload;
+      const { _id, name, price, priceId } = product;
+      const existingItemIndex = state.cart.findIndex(
+        (item) => item._id === _id
+      );
 
-      if (existingItem) {
-        // If a product with the same name exists in the cart, update the quantity+1
-        const updatedCart = state.cart.map((item) =>
-          item.name === name && item.id === existingItem.id
-            ? { ...item, qty: item.qty + 1 }
-            : item
+      if (existingItemIndex !== -1) {
+        // if a product with the same id exists in the cart, update the quantity
+        const updatedCart = state.cart.map((item, index) =>
+          index === existingItemIndex ? { ...item, qty: item.qty + 1 } : item
         );
 
         const totalPrice = calculateTotalPrice(updatedCart);
@@ -36,13 +34,15 @@ const cartReducer = (state, action) => {
           totalPrice: totalPrice,
         };
       } else {
-        // If the product doesn't exist, add it to cart
-        const newProductId = `${name}_${Date.now()}`;
+        // ff the product doesn't exist, add it to cart
+        const newProductId = `${_id}_${Date.now()}`;
         const newProduct = {
           id: newProductId,
-          ...action.payload,
+          _id,
+          name,
+          price,
+          priceId,
           qty: 1,
-          convertedPrice: convertedPrice, // Include the converted price in the cart item
         };
 
         const totalPrice = calculateTotalPrice([...state.cart, newProduct]);
@@ -58,13 +58,13 @@ const cartReducer = (state, action) => {
       const updatedCart = state.cart
         .map((item) => {
           if (item.id === id) {
-            // Decrease quantity by 1, or remove the item if quantity becomes 0
+            // decrease quantity by 1, or remove the item if quantity becomes 0
             const updatedQty = item.qty - 1;
             return updatedQty > 0 ? { ...item, qty: updatedQty } : null;
           }
           return item;
         })
-        .filter(Boolean); // Filter out null values from the cart
+        .filter(Boolean); // filter out null values from the cart
 
       const totalPrice = calculateTotalPrice(updatedCart);
 
@@ -78,7 +78,7 @@ const cartReducer = (state, action) => {
       const { id: incrementId } = action.payload;
       const updatedCartIncrement = state.cart.map((item) => {
         if (item.id === incrementId) {
-          // Increment quantity by 1
+          // increment quantity by 1
           return { ...item, qty: item.qty + 1 };
         }
         return item;

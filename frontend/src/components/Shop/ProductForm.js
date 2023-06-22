@@ -12,6 +12,7 @@ const ProductForm = () => {
   //state of each form property
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
+  const [priceId, setPriceId] = useState("");
   const [description, setDesc] = useState("");
   const [imgUrl, setImgUrl] = useState("");
 
@@ -21,7 +22,7 @@ const ProductForm = () => {
     e.preventDefault();
 
     //new product obj
-    const product = { name, price, description, imgUrl };
+    const product = { name, price, priceId, description, imgUrl };
 
     const response = await fetch("/api/products", {
       method: "POST",
@@ -39,6 +40,7 @@ const ProductForm = () => {
     if (response.ok) {
       setName("");
       setPrice("");
+      setPriceId("");
       setDesc("");
       setImgUrl("");
       setError(null);
@@ -64,12 +66,22 @@ const ProductForm = () => {
       </Form.Group>
 
       <Form.Group className="mb-3">
+        <Form.Label>Price</Form.Label>
+        <Form.Control
+          type="number"
+          placeholder="00.00"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3">
         <Form.Label>Stripe Price ID</Form.Label>
         <Form.Control
           type="text"
           placeholder="Stripe Price ID"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
+          value={priceId}
+          onChange={(e) => setPriceId(e.target.value)}
         />
       </Form.Group>
 
