@@ -14,7 +14,12 @@ const CourseList = () => {
       <p>
         Please contact{" "}
         <strong>
-          <a href="mailto:helen@firstaidnz.co.nz">helen@firstaidnz.co.nz</a>
+          <a
+            className="text-fanzLightGreen"
+            href="mailto:helen@firstaidnz.co.nz"
+          >
+            helen@firstaidnz.co.nz
+          </a>
         </strong>{" "}
         for all course inquiries
       </p>

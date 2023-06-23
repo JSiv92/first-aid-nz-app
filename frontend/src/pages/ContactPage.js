@@ -1,13 +1,15 @@
 //blank react component for page
-import React from "react";
+import React, { Suspense } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
+import Spinner from "react-bootstrap/Spinner";
 
 //components
 import PageHeading from "../components/PageHeading";
 import ContactForm from "../components/Contact/ContactForm.js";
-import ContactInfo from "../components/Contact/ContactInfo";
+const LazyContactInfo = React.lazy(() =>
+  import("../components/Contact/ContactInfo")
+);
 
 const ContactPage = () => {
   return (
@@ -63,7 +65,19 @@ const ContactPage = () => {
             <ContactForm />
           </Col>
           <Col xs={12} md={8}>
-            <ContactInfo />
+            <Suspense
+              fallback={
+                <Spinner
+                  animation="border"
+                  role="status"
+                  variant="fanzLightGreen"
+                >
+                  <span className="visually-hidden">Loading...</span>
+                </Spinner>
+              }
+            >
+              <LazyContactInfo />
+            </Suspense>
           </Col>
         </Row>
       </div>

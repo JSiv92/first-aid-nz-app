@@ -15,16 +15,19 @@ JS 24/may/2023
 */
 
 //ALL COURSES COMPONENT//
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, Suspense } from "react";
 import React from "react";
 import "./AllCourses.css";
+import "../Contact/ContactInfo.css";
 import { Context } from "../../context/CartContext";
 //Components
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Spinner from "react-bootstrap/Spinner";
 import Table from "react-bootstrap/Table";
 import Pagination from "react-bootstrap/Pagination";
 import CourseList from "./CourseList";
+const LazyCourseLocations = React.lazy(() => import("./CourseLocations"));
 
 const AllCourses = () => {
   const [courses, setCourses] = useState(null);
@@ -35,46 +38,6 @@ const AllCourses = () => {
   const coursesPerPage = 10; // Number of courses to display per page
   const { dispatch } = useContext(Context); //add to cart
   const [addedToCart, setAddedToCart] = useState({}); // state to control the added to cart popup
-
-  //course locations array
-  const locations = [
-    {
-      location: "West Auckland",
-      venue: "Te Atatu Peninsula Community Centre",
-      address: "595 Te Atatu Road, Te Atatu Peninsula",
-      parking: "Parking Available",
-    },
-    {
-      location: "North Auckland",
-      venue: "Milford Cruising Club",
-      address: "24 Craig Road, Milford",
-      parking: "Street Parking Available",
-    },
-    {
-      location: "East Auckland",
-      venue: "Pakuranga Tennis Club",
-      address: "101 Pigeon Mountain Road, Pakuranga",
-      parking: "Gill Road - No parking at Tennis club on Wednesdays",
-    },
-    {
-      location: "South Auckland",
-      venue: "Electrical Industry Training Building",
-      address: "501F Mt Wellington Highway, Mt Wellington",
-      parking: "Parking Available",
-    },
-    {
-      location: "Central Auckland",
-      venue: "Epsom Community Centre",
-      address: "202 Gillies Ave, Epsom",
-      parking: "Parking Available",
-    },
-    {
-      location: "Tauranga",
-      venue: "Tauranga Volunteer Coastguard (Gresham Room)",
-      address: "72 Keith Allen Drive, Sulphur Point",
-      parking: "Parking Available",
-    },
-  ];
 
   //sortable columns
   const handleSort = (column) => {
@@ -296,24 +259,15 @@ const AllCourses = () => {
         </div>
       </div>
       <CourseList />
-      <div className="courseInfo">
-        <h4>
-          <i class="fa-solid fa-location-dot"></i>
-          <strong> Course Locations</strong>
-        </h4>
-        <hr />
-        <p>
-          Lorem Ipsum has been the industry's standard dummy text ever since the
-          1500s, when an unknown printer took a galley of type and scrambled it
-          to make a type specimen book. It has survived not only five centuries,
-          but also the leap into electronic typesetting, remaining essentially
-          unchanged.
-          <br /> It was popularised in the 1960s with the release of Letraset
-          sheets containing Lorem Ipsum passages, and more recently with desktop
-          publishing software like Aldus PageMaker including versions of Lorem
-          Ipsum
-        </p>
-      </div>
+      <Suspense
+        fallback={
+          <Spinner animation="border" role="status" variant="fanzLightGreen">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        }
+      >
+        <LazyCourseLocations />
+      </Suspense>
     </>
   );
 };

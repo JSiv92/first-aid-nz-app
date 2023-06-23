@@ -61,7 +61,9 @@ app.post("/create-checkout-session", async (req, res) => {
   console.log({ cartItems });
   try {
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
+      shipping_address_collection: {
+        allowed_countries: ["NZ"],
+      },
       mode: "payment",
       line_items: req.body.cart.map((item) => {
         const cartItem = allProducts.find(
@@ -78,6 +80,9 @@ app.post("/create-checkout-session", async (req, res) => {
           quantity: item.qty,
         };
       }),
+      phone_number_collection: {
+        enabled: true,
+      },
       success_url: success,
       cancel_url: cancel,
     });
