@@ -1,5 +1,4 @@
-MERN javascript ecommerce app for FIRST AID NZ LTD
-(website re-development)
+client side React App for firstaidnz 
 
 https://youtu.be/-kARKm0gk0Q
 
